@@ -42,6 +42,7 @@ ul li {
         width: 100%;
         height: 90px;
         background-color: var(--primary-color);
+        position: fixed;
     }
 
     .navigation-bar {
@@ -141,6 +142,7 @@ ul li {
         width: 100%;
         height: 90px;
         background-color: var(--primary-color);
+        position: fixed;
     }
 
     .navigation-bar .container {
