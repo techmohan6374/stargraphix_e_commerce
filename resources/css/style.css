@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-color: #FF2C2D;
+    --secondary-color: white;
+    --dark-color: black;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vue Display None */
+[v-cloak] {
+    display: none;
+}
+
+/* Media Query */
+@media screen and (min-width:1024px) {
+
+    /* xl */
+    header {
+        width: 100%;
+        height: 90px;
+        background-color: var(--primary-color);
+    }
+
+    .navigation-bar {
+        height: 100%;
+    }
+
+    .navigation-bar .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation-bar .star-graphix-logo {
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .navigation-bar .circle-logo {
+        width: 70px;
+        height: 70px;
+        background-color: var(--secondary-color);
+        border-radius: 50%;
+    }
+
+    .navigation-bar .star-graphix-logo .circle-logo img {
+        width: 45px;
+    }
+
+    .navigation-bar .star-graphix-logo .company-name h1 {
+        font-size: 25px;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .navigation-bar .star-graphix-logo .company-name p {
+        color: var(--secondary-color);
+        margin: 0px;
+        font-size: 15px;
+    }
+
+    .nav-bar ul {
+        margin: 0px;
+    }
+
+    .nav-bar ul li a {
+        color: var(--secondary-color);
+        padding: 0px 20px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .nav-bar ul li:last-child {
+        margin-right: 20px;
+    }
+
+    .nav-bar .order-now {
+        border: none;
+        outline: none;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 8px 15px;
+        font-size: 18px;
+        font-weight: 600;
+        gap: 5px;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+    .nav-bar .order-now iconify-icon {
+        font-size: 26px;
+    }
+
+    .nav-bar .order-now:hover {
+        background-color: var(--dark-color);
+        color: var(--secondary-color);
+    }
+
+    .expand-btn {
+        display: none;
+    }
+
+    .nav-mobile-bar {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1023px) {
+
+    /* sm && xs */
+    /* xl */
+    .container-fluid {
+        position: relative;
+    }
+
+    header {
+        width: 100%;
+        height: 90px;
+        background-color: var(--primary-color);
+    }
+
+    .navigation-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation-bar .circle-logo {
+        width: 70px;
+        height: 70px;
+        background-color: var(--secondary-color);
+        border-radius: 50%;
+    }
+
+    .navigation-bar .star-graphix-logo .circle-logo img {
+        width: 45px;
+    }
+
+    .navigation-bar .star-graphix-logo {
+        gap: 10px;
+        height: 89px;
+    }
+
+    .navigation-bar .star-graphix-logo .company-name h1 {
+        font-size: 18px;
+        color: var(--secondary-color);
+        font-weight: bold;
+    }
+
+    .navigation-bar .star-graphix-logo .company-name p {
+        color: var(--secondary-color);
+        margin: 0px;
+        font-size: 10px;
+    }
+
+    .nav-mobile-bar {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--dark-color);
+    }
+
+    .nav-mobile-bar ul {
+        flex-direction: column;
+        padding: 0px;
+        gap: 50px;
+    }
+
+    .nav-mobile-bar ul li a {
+        color: var(--secondary-color);
+        font-size: 20px;
+    }
+
+    .nav-mobile-bar ul li a:hover {
+        color: var(--primary-color);
+    }
+
+    .nav-mobile-bar ul li:last-child {
+        margin-bottom: 20px;
+    }
+
+    .expand-btn {
+        display: flex;
+        border: none;
+        outline: none;
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        font-size: 22px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        transition: 0.1s;
+
+    }
+
+    .expand-btn:hover {
+        background-color: transparent;
+        color: var(--secondary-color);
+        border: 2px solid var(--secondary-color);
+    }
+
+    .nav-mobile-bar .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        border: none;
+        outline: none;
+        color: var(--secondary-color);
+        background-color: transparent;
+        font-size: 30px;
+        transition: 0.2s;
+    }
+
+    .nav-mobile-bar .close-btn:hover {
+        color: var(--primary-color);
+    }
+
+    .navigation-bar .order-now {
+        border: none;
+        outline: none;
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 8px 15px;
+        font-size: 18px;
+        font-weight: 600;
+        gap: 5px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .navigation-bar .order-now iconify-icon {
+        font-size: 26px;
+    }
+
+    .navigation-bar .order-now:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+    }
+
+    .nav-bar .order-now {
+        display: none;
+    }
+
+    .nav-bar ul {
+        margin: 0px;
+        display: none;
+    }
+}
