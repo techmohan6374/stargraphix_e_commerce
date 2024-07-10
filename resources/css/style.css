@@ -357,9 +357,11 @@ section {
     }
 
     /* Carousel Styles */
+
     .slider {
         padding: 0px 20px;
         min-height: 280px;
+        z-index: 20;
     }
 
     .slides {
