@@ -2,12 +2,55 @@ var vm = new Vue({
     el: '#StarGraphixApp',
     data: {
         openMobileNav: false,
+        sliderImage: [],
+        currentSlide: 0,
+        animate: false
     },
     computed: {
 
     },
     methods: {
 
+        // Slider Methods
+        updateSliderImages() {
+            if (window.innerWidth >= 768) {
+                this.sliderImage = [
+                    '/resources/images/Slider Images/1.jpg',
+                    '/resources/images/Slider Images/1.jpg',
+                    '/resources/images/Slider Images/1.jpg',
+                ];
+            } else {
+                this.sliderImage = [
+                    '/resources/images/Slider Images/1.jpg',
+                    '/resources/images/Slider Images/1.jpg',
+                    '/resources/images/Slider Images/1.jpg',
+                ];
+            }
+        },
+        nextSlide() {
+            this.animateSlide(() => {
+                this.currentSlide = (this.currentSlide + 1) % this.sliderImage.length;
+            });
+        },
+        prevSlide() {
+            this.animateSlide(() => {
+                this.currentSlide = (this.currentSlide - 1 + this.sliderImage.length) % this.sliderImage.length;
+            });
+        },
+        goToSlide(index) {
+            this.animateSlide(() => {
+                this.currentSlide = index;
+            });
+        },
+        animateSlide(callback) {
+            this.animate = true;
+            setTimeout(() => {
+                callback();
+                setTimeout(() => {
+                    this.animate = false;
+                }, 1000); // Adjust this timeout to match the animation duration
+            }, 0);
+        },
     },
     watch: {
 
@@ -16,6 +59,10 @@ var vm = new Vue({
 
     },
     created() {
-
+        this.updateSliderImages();
+        window.addEventListener('resize', this.updateSliderImages);
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.updateSliderImages);
     },
 });
