@@ -15,9 +15,9 @@ var vm = new Vue({
         updateSliderImages() {
             if (window.innerWidth >= 768) {
                 this.sliderImage = [
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.jpg',
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.jpg',
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.jpg',
+                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.png',
+                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.png',
+                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.png',
                 ];
             } else {
                 this.sliderImage = [
