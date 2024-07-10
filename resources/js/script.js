@@ -4,7 +4,45 @@ var vm = new Vue({
         openMobileNav: false,
         sliderImage: [],
         currentSlide: 0,
-        animate: false
+        animate: false,
+        services: [
+            {
+                id: 1,
+                serviceName: 'Logo Design',
+                serviceIcon: 'mdi:file-star-outline',
+                serviceContent: 'Crafting unique and memorable logos that capture the essence of your brand. Ourdesigns stand out and leave a lasting impression.'
+            },
+            {
+                id: 2,
+                serviceName: 'Print Design',
+                serviceIcon: 'ic:sharp-print',
+                serviceContent: 'Creating eye-catching and effective print materials, from business cards to brochures. We ensure high-quality prints that reflect your brand.'
+            },
+            {
+                id: 3,
+                serviceName: 'Brand Identity',
+                serviceIcon: 'ant-design:shop-filled',
+                serviceContent: 'Developing a cohesive brand identity that tells your story and connects with your audience. Strengthen your brand presence with our expertise.'
+            },
+            {
+                id: 4,
+                serviceName: 'Website Design',
+                serviceIcon: 'mdi:web-sync',
+                serviceContent: ' Designing stunning and user-friendly websites that engage your visitors. Our designs are tailored to your business goals and aesthetics.'
+            },
+            {
+                id: 5,
+                serviceName: 'Digital Business Card',
+                serviceIcon: 'flowbite:profile-card-outline',
+                serviceContent: 'Create interactive digital business cards with social media icons and click-to-call functionality. Share contact info effortlessly'
+            },
+            {
+                id: 6,
+                serviceName: 'Web Applications',
+                serviceIcon: 'ph:code-fill',
+                serviceContent: 'Building robust and scalable web applications tailored to your business needs. Enhance functionality and user experience with our solutions.'
+            },
+        ]
     },
     computed: {
 
@@ -21,9 +59,9 @@ var vm = new Vue({
                 ];
             } else {
                 this.sliderImage = [
-                    '/resources/images/Slider Images/1.jpg',
-                    '/resources/images/Slider Images/1.jpg',
-                    '/resources/images/Slider Images/1.jpg',
+                    'https://placehold.co/600x400/?text=Slide1',
+                    'https://placehold.co/600x400/?text=Slide2',
+                    'https://placehold.co/600x400/?text=Slide3',
                 ];
             }
         },

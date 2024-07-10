@@ -6,9 +6,11 @@
 }
 
 :root {
+    --background-color: #F5F5F5;
     --primary-color: #FF2C2D;
     --secondary-color: white;
     --dark-color: black;
+    --dark-light-color: #4D4B4B;
 }
 
 img {
@@ -34,14 +36,30 @@ ul li {
     display: none;
 }
 
+.container-fluid {
+    background-color: var(--background-color);
+}
+
+header {
+    position: fixed;
+    z-index: 20;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
 /* Slider Styles */
-section {
-    padding-top: 120px;
+#home {
+    padding-top: 90px;
+}
+
+#services {
+    padding-top: 30px;
 }
 
 .slider {
     border: none;
     position: relative;
+    background-color: var(--secondary-color);
+    border-bottom: 10px solid var(--primary-color);
 }
 
 .slides {
@@ -55,9 +73,9 @@ section {
     outline: none;
     width: 45px;
     height: 45px;
-    background-color: red;
+    background-color: var(--primary-color);
     border-radius: 50%;
-    color: white;
+    color: var(--secondary-color);
     font-size: 20px;
     top: 50%;
     transform: translateY(-50%);
@@ -72,14 +90,63 @@ section {
 .slider-dot {
     width: 15px;
     height: 15px;
-    background-color: lightgray;
+    background-color: var(--dark-light-color);
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
 }
 
 .active-dot {
-    background-color: red;
+    background-color: var(--primary-color);
+}
+
+/* Services */
+.our-services {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+.service-card {
+    width: 100%;
+    min-height: 250px;
+    background-color: var(--secondary-color);
+    border-radius: 9px !important;
+    border: none;
+    border-bottom: 7px solid var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    flex-direction: column;
+    padding: 0px 20px;
+    gap: 10px;
+}
+
+.service-card .service-logo {
+    background-color: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+}
+
+.service-card .service-header {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.service-card .service-heading {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.service-card .service-content {
+    color: var(--dark-light-color);
+    font-size: 14px;
+    text-align: center;
 }
 
 /* Media Query */
@@ -91,7 +158,6 @@ section {
         width: 100%;
         height: 90px;
         background-color: var(--primary-color);
-        position: fixed;
     }
 
     .navigation-bar {
@@ -149,8 +215,7 @@ section {
     }
 
     .nav-bar ul li a:hover {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
+        color: var(--dark-light-color-color);
     }
 
     .nav-bar ul li:last-child {
@@ -189,8 +254,8 @@ section {
 
     /* Carousel Styles */
     .slider {
-        padding: 0px 90px;
-        min-height: 490px;
+        padding: 24px 90px;
+        min-height: 521px;
     }
 
     .slides {
@@ -222,7 +287,6 @@ section {
         width: 100%;
         height: 90px;
         background-color: var(--primary-color);
-        position: fixed;
     }
 
     .navigation-bar .container {
@@ -248,7 +312,7 @@ section {
     }
 
     .navigation-bar .star-graphix-logo .company-name h1 {
-        font-size: 18px;
+        font-size: 25px;
         color: var(--secondary-color);
         font-weight: bold;
     }
@@ -256,18 +320,19 @@ section {
     .navigation-bar .star-graphix-logo .company-name p {
         color: var(--secondary-color);
         margin: 0px;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .nav-mobile-bar {
         display: flex;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 0px;
         left: 0px;
         width: 100vw;
         height: 100vh;
         background-color: var(--dark-color);
+        z-index: 30;
     }
 
     .nav-mobile-bar ul {
@@ -325,7 +390,7 @@ section {
         color: var(--primary-color);
     }
 
-    .navigation-bar .order-now {
+    .nav-mobile-bar .order-now {
         border: none;
         outline: none;
         background-color: var(--primary-color);
@@ -338,11 +403,11 @@ section {
         margin-top: 20px;
     }
 
-    .navigation-bar .order-now iconify-icon {
+    .nav-mobile-bar .order-now iconify-icon {
         font-size: 26px;
     }
 
-    .navigation-bar .order-now:hover {
+    .nav-mobile-bar .order-now:hover {
         background-color: var(--secondary-color);
         color: var(--primary-color);
     }
@@ -359,9 +424,8 @@ section {
     /* Carousel Styles */
 
     .slider {
-        padding: 0px 20px;
-        min-height: 280px;
-        z-index: 20;
+        padding: 40px 20px;
+        min-height: 320px;
     }
 
     .slides {

@@ -25,7 +25,7 @@
                     <div class="container">
                         <div class="star-graphix-logo flex">
                             <div class="circle-logo flex">
-                                <a href="#">
+                                <a href="#home">
                                     <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo"
                                         loading="lazy">
                                 </a>
@@ -35,41 +35,19 @@
                                 <p>Digital Solution in one place</p>
                             </div>
                         </div>
-                        <div v-if="openMobileNav" class="nav-mobile-bar flex">
-                            <ul class="flex">
-                                <li>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Products</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact Us</a>
-                                </li>
-                            </ul>
-                            <button class="order-now flex">
-                                <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
-                            </button>
-                            <button class="close-btn" v-on:click="openMobileNav=false">
-                                <iconify-icon icon="rivet-icons:close"></iconify-icon>
-                            </button>
-                        </div>
                         <div class="nav-bar flex">
                             <ul class="flex">
                                 <li>
-                                    <a href="#">Home</a>
+                                    <a href="#home">Home</a>
                                 </li>
                                 <li>
-                                    <a href="#">Services</a>
+                                    <a href="#services">Services</a>
                                 </li>
                                 <li>
-                                    <a href="#">Products</a>
+                                    <a href="#products">Products</a>
                                 </li>
                                 <li>
-                                    <a href="#">Contact Us</a>
+                                    <a href="#contact">Contact Us</a>
                                 </li>
                             </ul>
                             <button class="order-now flex">
@@ -83,25 +61,75 @@
                 </div>
             </header>
             <section id="home">
-                <div class="card slider">
+                <div class="card slider rounded-0">
                     <div class="container" style="overflow: hidden;">
-                        <div class="slides animate__animated" v-bind:class="{ 'animate__backInRight': animate }"
+                        <div class="slides animate__animated" v-bind:class="{ '': animate }"
                             v-bind:style="{ backgroundImage: 'url(' + sliderImage[currentSlide] + ')' }">
                         </div>
-                    </div>
-                    <button class="slider-btn previous-btn flex" v-on:click="prevSlide">
-                        <iconify-icon icon="bxs:left-arrow"></iconify-icon>
-                    </button>
-                    <button class="slider-btn next-btn flex" v-on:click="nextSlide">
-                        <iconify-icon icon="bxs:right-arrow"></iconify-icon>
-                    </button>
-                    <div class="slider-dots">
-                        <div v-for="(slide, index) in sliderImage" v-bind:key="index"
-                            v-bind:class="['slider-dot', { 'active-dot': currentSlide === index }]"
-                            v-on:click="goToSlide(index)"></div>
+                        <button class="slider-btn previous-btn flex" v-on:click="prevSlide">
+                            <iconify-icon icon="bxs:left-arrow"></iconify-icon>
+                        </button>
+                        <button class="slider-btn next-btn flex" v-on:click="nextSlide">
+                            <iconify-icon icon="bxs:right-arrow"></iconify-icon>
+                        </button>
+                        <div class="slider-dots">
+                            <div v-for="(slide, index) in sliderImage" v-bind:key="index"
+                                v-bind:class="['slider-dot', { 'active-dot': currentSlide === index }]"
+                                v-on:click="goToSlide(index)"></div>
+                        </div>
                     </div>
                 </div>
             </section>
+            <section id="services" style="height:600px;">
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-12 flex">
+                            <div class="our-services flex">
+                                Our Services
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div v-for="service in services" class="col-12 col-md-6 col-xl-4 mb-4">
+                            <div class="card service-card flex">
+                                <div class="service-header flex">
+                                    <div class="service-logo flex">
+                                        <iconify-icon :icon="service.serviceIcon"></iconify-icon>
+                                    </div>
+                                    <div class="service-heading">
+                                        {{service.serviceName}}
+                                    </div>
+                                </div>
+                                <div class="service-content">
+                                    {{service.serviceContent}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div v-if="openMobileNav" class="nav-mobile-bar flex">
+            <ul class="flex">
+                <li>
+                    <a href="#home" v-on:click="openMobileNav=false">Home</a>
+                </li>
+                <li>
+                    <a href="#services" v-on:click="openMobileNav=false">Services</a>
+                </li>
+                <li>
+                    <a href="#products" v-on:click="openMobileNav=false">Products</a>
+                </li>
+                <li>
+                    <a href="#contact" v-on:click="openMobileNav=false">Contact Us</a>
+                </li>
+            </ul>
+            <button class="order-now flex">
+                <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
+            </button>
+            <button class="close-btn" v-on:click="openMobileNav=false">
+                <iconify-icon icon="rivet-icons:close"></iconify-icon>
+            </button>
         </div>
     </div>
 
