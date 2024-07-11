@@ -7,10 +7,7 @@
     <title>Star Graphix</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Animate CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="resources/css/library/bootstrap.css" rel="stylesheet" />
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="resources/css/style.css">
@@ -80,7 +77,7 @@
                     </div>
                 </div>
             </section>
-            <section id="services" style="min-height:600px;">
+            <section id="services">
                 <div class="container">
                     <div class="row mb-4">
                         <div class="col-12 flex">
@@ -105,6 +102,46 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section id="products" style="min-height: 600px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 flex">
+                            <div class="tabs flex" style="width:300px;">
+                                <div class="tab" :class="{ active: currentTab === 'Tab 1' }"
+                                    v-on:click="currentTab = 'Tab 1'">Design</div>
+                                <div class="tab" :class="{ active: currentTab === 'Tab 2' }"
+                                    v-on:click="currentTab = 'Tab 2'">Development</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" v-if="currentTab === 'Tab 1'" style="margin-top: 30px;">
+                        <div class="col-12 col-md-4 col-xl-4" v-for="product in products">
+                            <div class="card product-card flex">
+                                <div class="product-image">
+                                    <img :src="product.images" :alt="product.images">
+                                </div>
+                                <div class="product-name">
+                                    {{product.productName}}
+                                </div>
+                                <div class="product-prize">
+                                    Rs.<span>{{product.productPrize}}</span><span style="font-size:14px;">/-</span>
+                                </div>
+                                <div class="product-content">
+                                    {{product.productContent}}
+                                </div>
+                                <button class="view-more-btn flex">
+                                    View More
+                                    <iconify-icon icon="gg:arrow-right-o"></iconify-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row" v-if="currentTab === 'Tab 2'">
+                        <div class="col-12"></div>
                     </div>
                 </div>
             </section>
@@ -134,16 +171,16 @@
     </div>
 
     <!-- Jquery JS CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/resources/js/library/jquery.js"></script>
 
     <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/resources/js/library/bootstrap.js"></script>
 
     <!-- Iconify Icon JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
     <!-- Vue JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="/resources/js/library/vue-js.js"></script>
 
     <!-- JS Link -->
     <script src="resources/js/script.js"></script>

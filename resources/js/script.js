@@ -2,6 +2,7 @@ var vm = new Vue({
     el: '#StarGraphixApp',
     data: {
         openMobileNav: false,
+        currentTab: 'Tab 1',
         sliderImage: [],
         currentSlide: 0,
         animate: false,
@@ -42,7 +43,30 @@ var vm = new Vue({
                 serviceIcon: 'ph:code-fill',
                 serviceContent: 'Building robust and scalable web applications tailored to your business needs. Enhance functionality and user experience with our solutions.'
             },
-        ]
+        ],
+        products: [
+            {
+                id: 1,
+                productName: 'Business Card Design',
+                productImage: '',
+                productPrize: '500',
+                productContent: 'Get professionally crafted business card designs tailored to your brand. Impress clients with unique, high-quality designs that leave a lasting impression.',
+            },
+            {
+                id: 2,
+                productName: 'Flyer Design',
+                productImage: '',
+                productPrize: '1000',
+                productContent: 'Promote your business with eye-catching flyer designs. Custom-crafted to captivate and communicate your message effectively to your audience.',
+            },
+            {
+                id: 3,
+                productName: 'Wedding Card Design',
+                productImage: '',
+                productPrize: '2000',
+                productContent: 'Celebrate your special day with elegant wedding card designs. Customized to reflect your unique style and set the perfect tone for your big day.',
+            }
+        ],
     },
     computed: {
 
