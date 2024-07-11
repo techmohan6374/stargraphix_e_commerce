@@ -3,9 +3,6 @@ var vm = new Vue({
     data: {
         openMobileNav: false,
         currentTab: 'Tab 1',
-        sliderImage: [],
-        currentSlide: 0,
-        animate: false,
         services: [
             {
                 id: 1,
@@ -48,83 +45,53 @@ var vm = new Vue({
             {
                 id: 1,
                 productName: 'Business Card Design',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/1.png',
                 productPrize: '500',
                 productContent: 'Get professionally crafted business card designs tailored to your brand. Impress clients with unique, high-quality designs that leave a lasting impression.',
             },
             {
                 id: 2,
                 productName: 'Flyer Design',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/2.png',
                 productPrize: '1000',
                 productContent: 'Promote your business with eye-catching flyer designs. Custom-crafted to captivate and communicate your message effectively to your audience.',
             },
             {
                 id: 3,
                 productName: 'Wedding Card Design',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/3.png',
                 productPrize: '2000',
                 productContent: 'Celebrate your special day with elegant wedding card designs. Customized to reflect your unique style and set the perfect tone for your big day.',
             }
         ],
+        websiteProducts: [
+            {
+                id: 1,
+                websiteImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Websites/Web_1.jpg',
+                websiteType: 'Web Application',
+                websiteName: 'Invoice Generation Website',
+                websiteContent: 'Effortlessly create and manage invoices with our user-friendly platform. Generate professional invoices, download them as PDFs, and track your invoicing activity through a comprehensive dashboard.'
+            },
+            {
+                id: 2,
+                websiteImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Websites/Web_2.jpg',
+                websiteType: 'Website',
+                websiteName: 'Portfolio Website',
+                websiteContent: 'A professional portfolio website using HTML, CSS, and JS, it has smooth page transitions, cool background effects, a unique design, and it is mobile responsive. It showcases my skills, projects, and experience in a visually engaging manner.'
+            },
+        ]
     },
     computed: {
 
     },
     methods: {
 
-        // Slider Methods
-        updateSliderImages() {
-            if (window.innerWidth >= 768) {
-                this.sliderImage = [
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/1.png',
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/2.png',
-                    'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Slider%20Images/3.png',
-                ];
-            } else {
-                this.sliderImage = [
-                    'https://placehold.co/600x400/?text=Slide1',
-                    'https://placehold.co/600x400/?text=Slide2',
-                    'https://placehold.co/600x400/?text=Slide3',
-                ];
-            }
-        },
-        nextSlide() {
-            this.animateSlide(() => {
-                this.currentSlide = (this.currentSlide + 1) % this.sliderImage.length;
-            });
-        },
-        prevSlide() {
-            this.animateSlide(() => {
-                this.currentSlide = (this.currentSlide - 1 + this.sliderImage.length) % this.sliderImage.length;
-            });
-        },
-        goToSlide(index) {
-            this.animateSlide(() => {
-                this.currentSlide = index;
-            });
-        },
-        animateSlide(callback) {
-            this.animate = true;
-            setTimeout(() => {
-                callback();
-                setTimeout(() => {
-                    this.animate = false;
-                }, 1000); // Adjust this timeout to match the animation duration
-            }, 0);
-        },
-    },
-    watch: {
-
     },
     mounted() {
-
-    },
-    created() {
-        this.updateSliderImages();
-        window.addEventListener('resize', this.updateSliderImages);
-    },
-    destroyed() {
-        window.removeEventListener('resize', this.updateSliderImages);
+        var elem = document.querySelector('.main-carousel');
+        var flkty = new Flickity(elem, {
+            cellAlign: 'center',
+            contain: true
+        });
     },
 });

@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Graphix</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link href="resources/css/library/bootstrap.css" rel="stylesheet" />
+    <!-- Website Title Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/STAR GRAPHIX LOGO.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="resources/css/library/bootstrap.css" />
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="resources/css/library/flickity.css">
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="resources/css/style.css">
@@ -58,22 +64,15 @@
                 </div>
             </header>
             <section id="home">
-                <div class="card slider rounded-0">
-                    <div class="container" style="overflow: hidden;">
-                        <div class="slides animate__animated" v-bind:class="{ '': animate }"
-                            v-bind:style="{ backgroundImage: 'url(' + sliderImage[currentSlide] + ')' }">
-                        </div>
-                        <button class="slider-btn previous-btn flex" v-on:click="prevSlide">
-                            <iconify-icon icon="bxs:left-arrow"></iconify-icon>
-                        </button>
-                        <button class="slider-btn next-btn flex" v-on:click="nextSlide">
-                            <iconify-icon icon="bxs:right-arrow"></iconify-icon>
-                        </button>
-                        <div class="slider-dots">
-                            <div v-for="(slide, index) in sliderImage" v-bind:key="index"
-                                v-bind:class="['slider-dot', { 'active-dot': currentSlide === index }]"
-                                v-on:click="goToSlide(index)"></div>
-                        </div>
+                <div class="main-carousel">
+                    <div class="carousel-1 carousel-cell flex">
+                        Carousel 1
+                    </div>
+                    <div class="carousel-2 carousel-cell flex">
+                        Carousel 2
+                    </div>
+                    <div class="carousel-3 carousel-cell flex">
+                        Carousel 3
                     </div>
                 </div>
             </section>
@@ -118,10 +117,10 @@
                         </div>
                     </div>
                     <div class="row" v-if="currentTab === 'Tab 1'" style="margin-top: 30px;">
-                        <div class="col-12 col-md-4 col-xl-4" v-for="product in products">
+                        <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products">
                             <div class="card product-card flex">
                                 <div class="product-image">
-                                    <img :src="product.images" :alt="product.images">
+                                    <img :src="product.productImage" :alt="product.productImage" loading="lazy">
                                 </div>
                                 <div class="product-name">
                                     {{product.productName}}
@@ -140,8 +139,23 @@
                         </div>
 
                     </div>
-                    <div class="row" v-if="currentTab === 'Tab 2'">
-                        <div class="col-12"></div>
+                    <div class="row" v-if="currentTab === 'Tab 2'" style="margin-top: 30px;">
+                        <div class="col-12 col-md-6 col-xl-6 mt-4" v-for="web in websiteProducts">
+                            <div class="card web-card">
+                                <div class="website-image">
+                                    <img :src="web.websiteImage" :alt="web.websiteImage" loading="lazy">
+                                </div>
+                                <div class="website-type">
+                                    {{web.websiteType}}
+                                </div>
+                                <div class="website-name">
+                                    {{web.websiteName}}
+                                </div>
+                                <div class="website-content">
+                                    {{web.websiteContent}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -170,20 +184,24 @@
         </div>
     </div>
 
-    <!-- Jquery JS CDN -->
-    <script src="/resources/js/library/jquery.js"></script>
+    <!-- Jquery JS -->
+    <script type="text/javascript" src="/resources/js/library/jquery.js"></script>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="/resources/js/library/bootstrap.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="/resources/js/library/bootstrap.js"></script>
 
-    <!-- Iconify Icon JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <!-- Iconify Icon JS -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
-    <!-- Vue JS CDN -->
-    <script src="/resources/js/library/vue-js.js"></script>
+    <!-- Flickity JS -->
+    <script type="text/javascript" src="/resources/js/library/flickity.js"></script>
+
+    <!-- Vue JS -->
+    <script type="text/javascript" src="/resources/js/library/vue-js.js"></script>
 
     <!-- JS Link -->
-    <script src="resources/js/script.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
 
 </body>
 
