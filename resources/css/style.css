@@ -8,8 +8,10 @@
 :root {
     --background-color: #F5F5F5;
     --primary-color: #FF2C2D;
+    --primary-dark-color: #CC2425;
     --secondary-color: white;
     --dark-color: black;
+    --dark-secondary-color: #333233;
     --dark-light-color: #4D4B4B;
 }
 
@@ -60,8 +62,13 @@ header {
 }
 
 #products {
-    min-height: 600px;
+    min-height: 630px;
     margin-bottom: 20px;
+}
+
+#contact {
+    min-height: 200px;
+    background-color: var(--dark-secondary-color);
 }
 
 /* Carousel Styles */
@@ -164,6 +171,7 @@ header {
     padding: 5px 20px;
     transition: 0.s;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .tab.active {
@@ -246,6 +254,10 @@ header {
     font-size: 20px;
 }
 
+.product-card .view-more-btn:hover {
+    background-color: var(--primary-dark-color);
+}
+
 .web-card {
     border-radius: 10px;
     border: none;
@@ -297,6 +309,182 @@ header {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
+}
+
+.view-more-line {
+    margin-top: 20px;
+    border-bottom: 1px solid #CCCCCC;
+    width: 100%;
+    height: 2px;
+}
+
+.view-more-products {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 35px;
+    padding: 8px 15px;
+    gap: 10px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+}
+
+.view-more-products iconify-icon {
+    font-size: 20px;
+}
+
+.view-more-products:hover {
+    background-color: var(--primary-dark-color);
+}
+
+/* Footer Design */
+
+.contact .star-graphix-logo {
+    gap: 10px;
+}
+
+.contact .circle-logo {
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.contact img {
+    width: 40px;
+}
+
+.contact .company-name h1 {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.contact .company-name p {
+    color: white;
+    font-size: 12px;
+    margin: 0px;
+    font-weight: 300;
+}
+
+.company-description {
+    margin-top: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    padding-right: 20px;
+}
+
+.contact .links {
+    flex-direction: column;
+}
+
+.contact .links ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact .links h4 {
+    color: var(--primary-color);
+}
+
+.contact .links ul li a {
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.contact .links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.contact .branches {
+    flex-direction: column;
+}
+
+.contact .branches h4 {
+    color: var(--primary-color);
+}
+
+.contact .branches p {
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.contact .customer-support {
+    flex-direction: column;
+}
+
+.contact .customer-support h4 {
+    color: var(--primary-color);
+}
+
+:is(.support-time, .email, .phone) {
+    color: var(--secondary-color);
+    font-size: 13px;
+    font-weight: 300;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contact iconify-icon {
+    font-size: 18px;
+}
+
+.social-media-icons {
+    gap: 10px;
+}
+
+.social-media-icons .circle {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.social-media-icons .circle-1:hover {
+    background-color: #395498;
+}
+
+.social-media-icons .circle-2:hover {
+    background: #833ab4;
+    background: linear-gradient(to right,
+            #833ab4, #fd1d1d, #fcb045);
+}
+
+.social-media-icons .circle-3:hover {
+    background-color: #24cc63;
+}
+
+.social-media-icons .circle-4:hover {
+    background-color: #0084c6;
+}
+
+.author {
+    border-top: 1px solid var(--dark-light-color);
+    padding: 10px 0px;
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#contact .container-fluid {
+    background-color: var(--dark-secondary-color);
+}
+
+.author:hover {
+    color: var(--primary-color);
 }
 
 /* Media Query */
@@ -401,6 +589,34 @@ header {
     .nav-mobile-bar {
         display: none;
     }
+
+    /* Footer Design */
+    .contact .star-graphix-logo {
+        justify-content: flex-start;
+    }
+
+    .contact .links {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .contact .branches {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .contact .customer-support {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    :is(.support-time, .email, .phone) {
+        justify-content: flex-start;
+    }
+
+    .social-media-icons {
+        justify-content: flex-start;
+    }
 }
 
 @media screen and (max-width:1023px) {
@@ -471,7 +687,7 @@ header {
 
     .nav-mobile-bar ul li a {
         color: var(--secondary-color);
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .nav-mobile-bar ul li a:hover {
@@ -547,5 +763,55 @@ header {
     .nav-bar ul {
         margin: 0px;
         display: none;
+    }
+
+    /* Footer Design */
+    .contact {
+        padding: 0px 20px;
+    }
+
+    .contact .star-graphix-logo {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .contact .links {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact .links ul {
+        text-align: center;
+    }
+
+    .contact .company-name {
+        text-align: center;
+    }
+
+    .contact .company-description {
+        text-align: center;
+    }
+
+    .contact .branches {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact .customer-support {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    :is(.support-time, .email, .phone) {
+        justify-content: center;
+    }
+
+    .social-media-icons {
+        justify-content: center;
+    }
+
+    .phone {
+        font-size: 11px !important;
     }
 }
