@@ -59,7 +59,7 @@ var vm = new Vue({
             {
                 id: 3,
                 productName: 'Wedding Card Design',
-                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/3.png',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Wedding%20Cards/1.jpg',
                 productPrize: '2000',
                 productContent: 'Celebrate your special day with elegant wedding card designs. Customized to reflect your unique style and set the perfect tone for your big day.',
             }
