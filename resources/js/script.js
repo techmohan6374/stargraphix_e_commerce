@@ -1,6 +1,7 @@
 var vm = new Vue({
     el: '#StarGraphixApp',
     data: {
+        showAll: true,
         openMobileNav: false,
         currentTab: 'Tab 1',
         services: [
@@ -85,13 +86,32 @@ var vm = new Vue({
 
     },
     methods: {
+        setShowAllTrue() {
+            this.showAll = true;
+            this.$nextTick(() => {
+                this.initFlickity();
+            });
+        },
+        toggleShowAll() {
+            this.showAll = !this.showAll;
+            this.$nextTick(() => {
+                this.initFlickity();
+            });
+        },
+        initFlickity() {
+            var elem = document.querySelectorAll('.main-carousel');
+            elem.forEach((carousel) => {
+                new Flickity(carousel, {
+                    cellAlign: 'center',
+                    contain: true
+                });
+            });
+        }
+    },
+});
 
-    },
-    mounted() {
-        var elem = document.querySelector('.main-carousel');
-        var flkty = new Flickity(elem, {
-            cellAlign: 'center',
-            contain: true
-        });
-    },
+var elem = document.querySelector('.main-carousel');
+var flkty = new Flickity(elem, {
+    cellAlign: 'center',
+    contain: true
 });
