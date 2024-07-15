@@ -200,13 +200,16 @@ header {
 
 .product-card .product-image {
     width: 100%;
-    height: 100%;
+    min-height: 200px;
+    max-height: 100px;
     border-radius: 10px;
     margin-bottom: 10px;
+    background-color: black;
 }
 
 .product-card img {
     width: 100%;
+    height: 200px;
     object-fit: cover;
     cursor: pointer;
     transition: 0.2s;
@@ -790,7 +793,7 @@ header {
 
     .contact .company-description {
         text-align: center;
-        padding-right:0px !important;
+        padding-right: 0px !important;
     }
 
     .contact .branches {

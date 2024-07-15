@@ -45,14 +45,14 @@ var vm = new Vue({
             {
                 id: 1,
                 productName: 'Business Card Design',
-                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/1.png',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Business%20Cards/1.jpg',
                 productPrize: '500',
                 productContent: 'Get professionally crafted business card designs tailored to your brand. Impress clients with unique, high-quality designs that leave a lasting impression.',
             },
             {
                 id: 2,
                 productName: 'Flyer Design',
-                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/2.png',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/1.jpg',
                 productPrize: '1000',
                 productContent: 'Promote your business with eye-catching flyer designs. Custom-crafted to captivate and communicate your message effectively to your audience.',
             },
