@@ -790,6 +790,7 @@ header {
 
     .contact .company-description {
         text-align: center;
+        padding-right:0px !important;
     }
 
     .contact .branches {
@@ -811,7 +812,4 @@ header {
         justify-content: center;
     }
 
-    .phone {
-        font-size: 11px !important;
-    }
 }
