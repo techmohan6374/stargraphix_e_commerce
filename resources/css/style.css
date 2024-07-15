@@ -809,6 +809,7 @@ header {
 
     :is(.support-time, .email, .phone) {
         justify-content: center;
+        font-size: 11px;
     }
 
     .social-media-icons {
