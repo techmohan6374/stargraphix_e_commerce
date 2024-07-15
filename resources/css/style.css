@@ -194,7 +194,7 @@ header {
     border-bottom: 8px solid var(--primary-color);
     flex-direction: column;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 15px;
     gap: 5px;
 }
 
@@ -204,7 +204,6 @@ header {
     max-height: 100px;
     border-radius: 10px;
     margin-bottom: 10px;
-    background-color: black;
 }
 
 .product-card img {
@@ -213,10 +212,11 @@ header {
     object-fit: cover;
     cursor: pointer;
     transition: 0.2s;
+    border-radius: 10px;
 }
 
 .product-card img:hover {
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 
 .product-card .product-name {
