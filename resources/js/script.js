@@ -89,7 +89,7 @@ var vm = new Vue({
             {
                 id: 5,
                 productName: 'Resume',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/1.jpg',
                 productPrize: 350,
                 productContent: 'Stand out with our expertly crafted digital resumes, designed for both online and print use. Elevate your professional presence with tailored, visually appealing resumes.'
             }
@@ -154,6 +154,21 @@ var vm = new Vue({
                 id: 12,
                 productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Instagram%20Posters/3.jpg',
                 productId: 4
+            },
+            {
+                id: 13,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/1.jpg',
+                productId: 5
+            },
+            {
+                id: 14,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/2.jpg',
+                productId: 5
+            },
+            {
+                id: 15,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/3.jpg',
+                productId: 5
             }
         ],
         websiteProducts: [
