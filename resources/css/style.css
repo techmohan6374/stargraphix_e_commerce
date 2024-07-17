@@ -528,6 +528,18 @@ header {
     font-size: 26px;
 }
 
+/* Show Selected product */
+
+.show-selected-product .selected-product {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
 /* Footer Design */
 
 .contact .star-graphix-logo {

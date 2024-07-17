@@ -372,7 +372,13 @@
                     </div>
                 </div>
                 <div v-if="showSingleProduct" class="container">
-                    <h2>business cards</h2>
+                    <div class="row show-selected-product">
+                        <div class="col-12 flex">
+                            <div class="selected-product flex">
+                                {{selectedProductName}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

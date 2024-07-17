@@ -17,6 +17,8 @@ var vm = new Vue({
             contentImage: '',
             message: ''
         },
+        selectedProductImage: [],
+        selectedProductName: '',
         services: [
             {
                 id: 1,
@@ -160,7 +162,8 @@ var vm = new Vue({
         showProduct(id) {
             this.showSingleProduct = true;
             this.showProducts = false;
-            console.log(id);
+            this.selectedProductImage = this.allProductsImages.filter(x => x.productId == id).map(x => x.productImage);
+            this.selectedProductName = this.products.filter(x => x.id == id).map(x => x.productName)[0];
         },
         clearAllData() {
             this.orderForm.firstName = '';
