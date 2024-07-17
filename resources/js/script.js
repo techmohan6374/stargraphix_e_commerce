@@ -5,9 +5,9 @@ var vm = new Vue({
         openMobileNav: false,
         allProducts: false,
         currentTab: 'Tab 1',
-        searchProductText: '',
         showProducts: true,
         showSingleProduct: false,
+        searchProductText: '',
         orderForm: {
             firstName: '',
             lastName: '',
