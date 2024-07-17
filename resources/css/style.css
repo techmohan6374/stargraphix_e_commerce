@@ -90,18 +90,13 @@ header {
 .carousel-cell {
     width: 100%;
     height: 100%;
+    padding: 20px 80px;
 }
 
-.carousel-1 {
-    background-color: teal;
-}
-
-.carousel-2 {
-    background-color: gold;
-}
-
-.carousel-3 {
-    background-color: greenyellow;
+.carousel-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 :is(.carousel-1, .carousel-2, .carousel-3) {
