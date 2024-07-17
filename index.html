@@ -120,6 +120,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="container mb-4">
                         <div class="row" v-if="currentTab === 'Tab 1'" style="margin-top: 30px;">
                             <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products">
@@ -144,8 +145,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container mb-4">
-                        <div class="row" v-if="currentTab === 'Tab 2'" style="margin-top: 30px;">
+                    <div v-if="currentTab === 'Tab 1'" class="container-fluid p-0 py-4">
+                        <div class="col-12 flex position-relative">
+                            <div class="view-more-line"></div>
+                            <button class="view-more-products flex" v-on:click="toggleShowAll()">
+                                View More Products
+                                <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div v-if="currentTab === 'Tab 2'" class="container mb-4">
+                        <div class="row" style="margin-top: 30px;">
                             <div class="col-12 col-md-6 col-xl-6 mt-4" v-for="web in websiteProducts">
                                 <div class="card web-card">
                                     <div class="website-image">
@@ -162,15 +172,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid p-0 py-4">
-                        <div class="col-12 flex position-relative">
-                            <div class="view-more-line"></div>
-                            <button class="view-more-products flex" v-on:click="toggleShowAll()">
-                                View More Products
-                                <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
-                            </button>
                         </div>
                     </div>
                 </section>
