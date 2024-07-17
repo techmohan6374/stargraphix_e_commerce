@@ -5,6 +5,7 @@ var vm = new Vue({
         openMobileNav: false,
         allProducts: false,
         currentTab: 'Tab 1',
+        searchProductText: '',
         services: [
             {
                 id: 1,
@@ -131,7 +132,16 @@ var vm = new Vue({
         ]
     },
     computed: {
-
+        filteredProductData() {
+            return this.products.filter(product => {
+                const searchText = this.searchProductText.toLowerCase();
+                return (
+                    product.productName.toLowerCase().includes(searchText) ||
+                    product.productContent.toLowerCase().includes(searchText) ||
+                    product.productPrize.toString().includes(searchText)
+                );
+            });
+        }
     },
     methods: {
         setShowAllTrue() {
