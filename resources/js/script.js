@@ -66,6 +66,53 @@ var vm = new Vue({
                 productContent: 'Celebrate your special day with elegant wedding card designs. Customized to reflect your unique style and set the perfect tone for your big day.',
             }
         ],
+        allProductsImages: [
+            {
+                id: 1,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Business%20Cards/1.jpg',
+                productId: 1
+            },
+            {
+                id: 2,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Business%20Cards/2.jpg',
+                productId: 1
+            },
+            {
+                id: 3,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Business%20Cards/3.jpg',
+                productId: 1,
+            },
+            {
+                id: 4,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/1.jpg',
+                productId: 2,
+            },
+            {
+                id: 5,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/2.jpg',
+                productId: 2
+            },
+            {
+                id: 6,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/3.jpg',
+                productId: 2
+            },
+            {
+                id: 7,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/4.jpg',
+                productId: 2
+            },
+            {
+                id: 8,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/5.jpg',
+                productId: 2
+            },
+            {
+                id: 9,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/6.jpg',
+                productId: 2
+            }
+        ],
         websiteProducts: [
             {
                 id: 1,
