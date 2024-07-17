@@ -92,6 +92,13 @@ var vm = new Vue({
                 productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/1.jpg',
                 productPrize: 350,
                 productContent: 'Stand out with our expertly crafted digital resumes, designed for both online and print use. Elevate your professional presence with tailored, visually appealing resumes.'
+            },
+            {
+                id: 6,
+                productName: 'Note Book',
+                productImage: '',
+                productPrize: 450,
+                productContent: 'Create your unique custom notebooks with personalized designs and professional printing. Ideal for gifts, branding, and everyday use.'
             }
         ],
         allProductsImages: [
