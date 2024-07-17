@@ -330,7 +330,7 @@
                 </section>
             </div>
             <div class="products-body" v-if="allProducts" style="padding-top:100px;">
-                <div class="container">
+                <div v-if="showProducts" class="container">
                     <div class="row my-4">
                         <div class="col-12 flex">
                             <div class="all-designs flex">
@@ -363,13 +363,16 @@
                                 <div class="product-content">
                                     {{product.productContent}}
                                 </div>
-                                <button class="view-more-btn flex">
+                                <button class="view-more-btn flex" v-on:click="showProduct(product.id)">
                                     View More
                                     <iconify-icon icon="gg:arrow-right-o"></iconify-icon>
                                 </button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div v-if="showSingleProduct" class="container">
+                    <h2>business cards</h2>
                 </div>
             </div>
         </div>

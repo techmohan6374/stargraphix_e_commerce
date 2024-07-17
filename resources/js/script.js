@@ -6,6 +6,8 @@ var vm = new Vue({
         allProducts: false,
         currentTab: 'Tab 1',
         searchProductText: '',
+        showProducts: true,
+        showSingleProduct: false,
         orderForm: {
             firstName: '',
             lastName: '',
@@ -155,6 +157,11 @@ var vm = new Vue({
         }
     },
     methods: {
+        showProduct(id) {
+            this.showSingleProduct = true;
+            this.showProducts = false;
+            console.log(id);
+        },
         clearAllData() {
             this.orderForm.firstName = '';
             this.orderForm.lastName = '';
@@ -172,6 +179,8 @@ var vm = new Vue({
                 this.productDropDown();
             });
             this.openMobileNav = false;
+            this.showSingleProduct = false;
+            this.showProducts = true;
         },
         toggleShowAll() {
             this.showAll = !this.showAll;
@@ -180,6 +189,8 @@ var vm = new Vue({
                 this.productDropDown();
             });
             this.allProducts = true;
+            this.showSingleProduct = false;
+            this.showProducts = true;
         },
         initFlickity() {
             var elem = document.querySelectorAll('.main-carousel');
@@ -189,7 +200,6 @@ var vm = new Vue({
                     contain: true
                 });
             });
-
         },
         triggerFileUpload() {
             this.$refs.fileInput.click();
