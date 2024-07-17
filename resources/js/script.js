@@ -220,15 +220,30 @@ var vm = new Vue({
             $('#productList').select2();
         },
         goToWhatsapp() {
-            const phoneNumber = '6374507893';
-            const message = `First Name: ${this.orderForm.firstName}
-                             Last Name: ${this.orderForm.lastName}
-                             Email: ${this.orderForm.email}
-                             Phone: ${this.orderForm.phone}
-                             Product Name: ${this.orderForm.productName}
-                             Message: ${this.orderForm.message}`;
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            var notyf = new Notyf();
+            notyf.success('Your Order Submitted Successfully');
+        },
+        openFullscreen(src) {
+            $.fancybox.open([
+                {
+                    src: src,
+                    opts: {
+                        caption: this.selectedProductName,
+                        animationEffect: "fade",
+                        transitionEffect: "slide"
+                    }
+                }
+            ], {
+                loop: false,
+                buttons: [
+                    "zoom",
+                    "share",
+                    "slideShow",
+                    "fullScreen",
+                    "download",
+                    "close"
+                ]
+            });
         }
     },
     mounted() {
