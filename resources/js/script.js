@@ -96,7 +96,7 @@ var vm = new Vue({
             {
                 id: 6,
                 productName: 'Note Book',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Note%20Book/1.jpg',
                 productPrize: 450,
                 productContent: 'Create your unique custom notebooks with personalized designs and professional printing. Ideal for gifts, branding, and everyday use.'
             }
@@ -176,6 +176,16 @@ var vm = new Vue({
                 id: 15,
                 productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Resume/3.jpg',
                 productId: 5
+            },
+            {
+                id: 16,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Note%20Book/1.jpg',
+                productId: 6
+            },
+            {
+                id: 17,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Note%20Book/2.jpg',
+                productId: 6
             }
         ],
         websiteProducts: [
