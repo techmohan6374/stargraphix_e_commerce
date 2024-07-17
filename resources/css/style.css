@@ -377,7 +377,6 @@ header {
     border-radius: 5px;
     font-weight: 600;
     resize: none;
-    border: 2px solid transparent;
 }
 
 .order-card .order-input::placeholder {

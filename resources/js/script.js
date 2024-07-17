@@ -137,7 +137,6 @@ var vm = new Vue({
                 const searchText = this.searchProductText.toLowerCase();
                 return (
                     product.productName.toLowerCase().includes(searchText) ||
-                    product.productContent.toLowerCase().includes(searchText) ||
                     product.productPrize.toString().includes(searchText)
                 );
             });
