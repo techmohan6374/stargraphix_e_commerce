@@ -82,9 +82,16 @@ var vm = new Vue({
             {
                 id: 4,
                 productName: 'Instagram Posters',
-                productImage: '',
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Instagram%20Posters/1.jpg',
                 productPrize: '500',
                 productContent: 'Elevate your social media presence with our stunning and eye-catching Instagram posters. Perfect for promoting events, sales, and brand messages.'
+            },
+            {
+                id: 5,
+                productName: 'Resume',
+                productImage: '',
+                productPrize: 350,
+                productContent: 'Stand out with our expertly crafted digital resumes, designed for both online and print use. Elevate your professional presence with tailored, visually appealing resumes.'
             }
         ],
         allProductsImages: [
@@ -132,6 +139,21 @@ var vm = new Vue({
                 id: 9,
                 productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Flyer/6.jpg',
                 productId: 2
+            },
+            {
+                id: 10,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Instagram%20Posters/1.jpg',
+                productId: 4
+            },
+            {
+                id: 11,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Instagram%20Posters/2.jpg',
+                productId: 4
+            },
+            {
+                id: 12,
+                productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Instagram%20Posters/3.jpg',
+                productId: 4
             }
         ],
         websiteProducts: [
