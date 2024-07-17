@@ -31,7 +31,7 @@
                     <div class="container">
                         <div class="star-graphix-logo flex">
                             <div class="circle-logo flex">
-                                <a href="#home">
+                                <a href="#home" v-on:click="setShowAllTrue()">
                                     <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo">
                                 </a>
                             </div>
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="container mb-4">
-                        <div class="row" v-if="currentTab === 'Tab 1'" style="margin-top: 30px;">
+                        <div class="row" v-if="currentTab === 'Tab 1'">
                             <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products">
                                 <div class="card product-card flex">
                                     <div class="product-image">
@@ -229,7 +229,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <button class="submit-order flex">
+                                            <button class="submit-order flex" v-on:click="goToWhatsapp()">
                                                 <iconify-icon icon="formkit:submit"></iconify-icon>
                                                 Submit Order
                                             </button>
@@ -246,7 +246,7 @@
                             <div class="col-12 col-md-12 col-xl-4 pt-4">
                                 <div class="star-graphix-logo flex">
                                     <div class="circle-logo flex">
-                                        <a href="#home">
+                                        <a href="#home" v-on:click="setShowAllTrue()">
                                             <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo"
                                                 loading="lazy">
                                         </a>
@@ -350,7 +350,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-4" style="margin-top: 30px;">
+                    <div class="row mb-4">
                         <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in filteredProductData">
                             <div class="card product-card flex">
                                 <div class="product-image">

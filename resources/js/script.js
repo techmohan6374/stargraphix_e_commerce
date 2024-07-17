@@ -6,6 +6,15 @@ var vm = new Vue({
         allProducts: false,
         currentTab: 'Tab 1',
         searchProductText: '',
+        orderForm: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            productName: '',
+            contentImage: '',
+            message: ''
+        },
         services: [
             {
                 id: 1,
@@ -143,6 +152,15 @@ var vm = new Vue({
         }
     },
     methods: {
+        clearAllData() {
+            this.orderForm.firstName = '';
+            this.orderForm.lastName = '';
+            this.orderForm.email = '';
+            this.orderForm.phone = '';
+            this.orderForm.productName = '';
+            this.orderForm.contentImage = '';
+            this.orderForm.message = '';
+        },
         setShowAllTrue() {
             this.showAll = true;
             this.allProducts = false;
@@ -170,7 +188,6 @@ var vm = new Vue({
             });
 
         },
-
         triggerFileUpload() {
             this.$refs.fileInput.click();
         },
@@ -182,6 +199,17 @@ var vm = new Vue({
         },
         productDropDown() {
             $('#productList').select2();
+        },
+        goToWhatsapp() {
+            const phoneNumber = '6374507893';
+            const message = `First Name: ${this.orderForm.firstName}
+                             Last Name: ${this.orderForm.lastName}
+                             Email: ${this.orderForm.email}
+                             Phone: ${this.orderForm.phone}
+                             Product Name: ${this.orderForm.productName}
+                             Message: ${this.orderForm.message}`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
         }
     },
     mounted() {
