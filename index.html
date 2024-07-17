@@ -207,9 +207,7 @@
                                         <div class="col-12 col-md-6 col-xl-6 mb-3">
                                             <select id="productList">
                                                 <option value="">Select your product</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                                <option v-for="val in productDropDownData" :value="val">{{val}}</option>
                                             </select>
                                         </div>
                                         <div class="col-12 col-md-6 col-xl-6 mb-3">

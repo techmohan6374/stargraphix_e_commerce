@@ -149,6 +149,9 @@ var vm = new Vue({
                     product.productPrize.toString().includes(searchText)
                 );
             });
+        },
+        productDropDownData() {
+            return this.products.map(x => x.productName);
         }
     },
     methods: {
