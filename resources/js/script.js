@@ -78,6 +78,13 @@ var vm = new Vue({
                 productImage: 'https://raw.githubusercontent.com/techmohan6374/stargraphix_e_commerce/main/resources/images/Designs/Wedding%20Cards/1.jpg',
                 productPrize: '2000',
                 productContent: 'Celebrate your special day with elegant wedding card designs. Customized to reflect your unique style and set the perfect tone for your big day.',
+            },
+            {
+                id: 4,
+                productName: 'Instagram Posters',
+                productImage: '',
+                productPrize: '500',
+                productContent: 'Elevate your social media presence with our stunning and eye-catching Instagram posters. Perfect for promoting events, sales, and brand messages.'
             }
         ],
         allProductsImages: [
