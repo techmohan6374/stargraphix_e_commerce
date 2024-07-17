@@ -164,6 +164,9 @@ var vm = new Vue({
             this.showProducts = false;
             this.selectedProductImage = this.allProductsImages.filter(x => x.productId == id).map(x => x.productImage);
             this.selectedProductName = this.products.filter(x => x.id == id).map(x => x.productName)[0];
+            this.toggleShowAll();
+            this.showSingleProduct = true;
+            this.showProducts = false;
         },
         clearAllData() {
             this.orderForm.firstName = '';

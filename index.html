@@ -137,7 +137,7 @@
                                     <div class="product-content">
                                         {{product.productContent}}
                                     </div>
-                                    <button class="view-more-btn flex">
+                                    <button class="view-more-btn flex" v-on:click="showProduct(product.id)">
                                         View More
                                         <iconify-icon icon="gg:arrow-right-o"></iconify-icon>
                                     </button>
@@ -371,11 +371,21 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="showSingleProduct" class="container">
-                    <div class="row show-selected-product">
+                <div v-if="showSingleProduct" class="container show-selected-product">
+                    <div class="row mt-3 mb-4">
                         <div class="col-12 flex">
                             <div class="selected-product flex">
                                 {{selectedProductName}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-xl-4 mb-3" v-for="val in selectedProductImage">
+                            <div class="card rounded-0">
+                                <img :src="val" :alt="val">
+                                <button class="fullscreen flex">
+                                    <iconify-icon icon="ic:outline-fullscreen-exit"></iconify-icon>
+                                </button>
                             </div>
                         </div>
                     </div>
