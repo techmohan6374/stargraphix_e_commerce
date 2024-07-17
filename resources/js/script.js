@@ -3,6 +3,7 @@ var vm = new Vue({
     data: {
         showAll: true,
         openMobileNav: false,
+        allProducts: false,
         currentTab: 'Tab 1',
         services: [
             {
@@ -88,15 +89,20 @@ var vm = new Vue({
     methods: {
         setShowAllTrue() {
             this.showAll = true;
+            this.allProducts = false;
             this.$nextTick(() => {
                 this.initFlickity();
+                this.productDropDown();
             });
+            this.openMobileNav = false;
         },
         toggleShowAll() {
             this.showAll = !this.showAll;
             this.$nextTick(() => {
                 this.initFlickity();
+                this.productDropDown();
             });
+            this.allProducts = true;
         },
         initFlickity() {
             var elem = document.querySelectorAll('.main-carousel');
@@ -106,12 +112,24 @@ var vm = new Vue({
                     contain: true
                 });
             });
+
+        },
+
+        triggerFileUpload() {
+            this.$refs.fileInput.click();
+        },
+        handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                console.log('File selected:', file);
+            }
+        },
+        productDropDown() {
+            $('#productList').select2();
         }
     },
-});
-
-var elem = document.querySelector('.main-carousel');
-var flkty = new Flickity(elem, {
-    cellAlign: 'center',
-    contain: true
+    mounted() {
+        this.initFlickity();
+        this.productDropDown();
+    }
 });
