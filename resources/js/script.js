@@ -2,6 +2,8 @@ var vm = new Vue({
     el: '#StarGraphixApp',
     data: {
         showAll: true,
+        showLoader: true,
+        showBody: false,
         openMobileNav: false,
         allProducts: false,
         currentTab: 'Tab 1',
@@ -315,7 +317,19 @@ var vm = new Vue({
         }
     },
     mounted() {
-        this.initFlickity();
-        this.productDropDown();
+        setTimeout(() => {
+            this.showLoader = false;
+            this.showBody = true;
+            this.$nextTick(() => {
+                this.initFlickity();
+                this.productDropDown();
+            });
+        }, 4000);
+        var typed = new Typed('#element', {
+            strings: ["Welcome To Star Graphix World"],
+            typeSpeed: 80,
+            cursorChar: '',
+            loop: 2,
+        });
     }
 });
