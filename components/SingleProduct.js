@@ -1,6 +1,6 @@
 const SingleProduct = {
     template: `
-          <div class="container show-selected-product">
+          <div class="container show-selected-product" style="min-height:100vh">
             <div class="row py-4">
                 <div class="col-12 flex">
                     <div class="selected-product flex">
@@ -107,6 +107,11 @@ const SingleProduct = {
                     id: 17,
                     productImage: '/resources/images/Designs/Note Book/2.jpg',
                     productId: 6
+                },
+                {
+                    id: 18,
+                    productImage: '/resources/images/Designs/Wedding Cards/1.jpg',
+                    productId: 3
                 }
             ],
             products: [

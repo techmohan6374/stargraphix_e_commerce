@@ -1,7 +1,7 @@
 const Products = {
     template: `
         <div class="products-body">
-            <div class="container">
+            <div class="container py-4">
                 <div class="row py-4">
                     <div class="col-12 flex">
                         <div class="all-designs flex">
