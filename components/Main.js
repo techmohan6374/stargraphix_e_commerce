@@ -319,7 +319,7 @@ const Main = {
                 <a href="#contact" v-on:click="closeMobileNav()">Contact Us</a>
             </li>
         </ul>
-        <a href="#order" class="order-now flex">
+        <a href="#order" class="order-now flex" v-on:click="closeMobileNav()">
             <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
         </a>
         <button class="close-btn" v-on:click="closeMobileNav()">
