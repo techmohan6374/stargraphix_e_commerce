@@ -1,0 +1,44 @@
+ /* All Products  */
+
+ .products-body .all-designs {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: bold;
+    width: 180px;
+    height: 50px;
+    border-radius: 15px;
+}
+
+.products-body input[type='search'] {
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: var(--dark-secondary-color);
+    border-radius: 5px;
+    width: 100%;
+    padding: 13px 15px 13px 46px;
+    border: 2px solid var(--primary-color);
+    font-size: 18px;
+}
+
+.products-body input[type='search']::placeholder {
+    color: var(--primary-color);
+}
+
+.product-body .search-bar {
+    position: relative;
+}
+
+.product-body .search-icon {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.product-body .search-bar iconify-icon {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    font-size: 26px;
+}
