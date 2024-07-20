@@ -540,10 +540,15 @@ header {
     color: var(--primary-color);
 }
 
-.contact .branches p {
+.contact .branches a {
     color: var(--secondary-color);
     font-size: 13px;
     font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.contact .branches a:hover {
+    color: var(--primary-color);
 }
 
 .contact .customer-support {
@@ -735,8 +740,23 @@ header {
         align-items: flex-start;
     }
 
-    :is(.support-time, .email, .phone) {
+    :is(.support-time, .email) {
         justify-content: flex-start;
+    }
+
+    .phone {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    a {
+        color: white;
+        gap: 6px;
+    }
+
+    a:hover {
+        color: var(--primary-color);
     }
 
     .social-media-icons {
@@ -891,7 +911,7 @@ header {
 
     /* Footer Design */
     .contact {
-        padding: 0px 20px;
+        padding: 0px 5px;
     }
 
     .contact .star-graphix-logo {
@@ -908,6 +928,10 @@ header {
         text-align: center;
     }
 
+    .contact .links ul li a {
+        font-size: 14px;
+    }
+
     .contact .company-name {
         text-align: center;
     }
@@ -915,11 +939,13 @@ header {
     .contact .company-description {
         text-align: center;
         padding-right: 0px !important;
+        font-size: 14px;
     }
 
-    .contact .branches {
+    .contact .branches a {
         justify-content: center;
         align-items: center;
+        font-size: 14px;
     }
 
     .contact .customer-support {
@@ -930,7 +956,17 @@ header {
 
     :is(.support-time, .email, .phone) {
         justify-content: center;
-        font-size: 11px;
+        font-size: 14px;
+        flex-direction: column;
+    }
+
+    a {
+        gap: 10px;
+        color: var(--secondary-color);
+    }
+
+    a:hover {
+        color: (--primary-color);
     }
 
     .social-media-icons {

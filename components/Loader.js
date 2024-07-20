@@ -19,8 +19,8 @@ const Loader = {
         var typed = new Typed('#element', {
             strings: ["Welcome To Star Graphix World"],
             typeSpeed: 80,
-            cursorChar: '',
-            loop: 2,
+            showCursor: false,
+            loop: false,
         });
         setTimeout(() => {
             this.$router.push('/main');

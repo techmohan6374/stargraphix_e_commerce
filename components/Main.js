@@ -6,7 +6,7 @@ const Main = {
             <div class="container">
                 <div class="star-graphix-logo flex">
                     <div class="circle-logo flex">
-                        <a href="#home">
+                        <a href="javascript:void(0);" v-on:click="scrollToSection('home')">
                             <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo">
                         </a>
                     </div>
@@ -18,19 +18,19 @@ const Main = {
                 <div class="nav-bar flex">
                     <ul class="flex">
                         <li>
-                            <a href="#home">Home</a>
+                            <a href="javascript:void(0);" v-on:click="scrollToSection('home')">Home</a>
                         </li>
                         <li>
-                            <a href="#services">Services</a>
+                            <a href="javascript:void(0);" v-on:click="scrollToSection('services')">Services</a>
                         </li>
                         <li>
-                            <a href="#products">Products</a>
+                            <a href="javascript:void(0);" v-on:click="scrollToSection('products')">Products</a>
                         </li>
                         <li>
-                            <a href="#contact">Contact Us</a>
+                            <a href="javascript:void(0);" v-on:click="scrollToSection('contact')">Contact Us</a>
                         </li>
                     </ul>
-                    <a href="#order" class="order-now flex">
+                    <a href="javascript:void(0);" v-on:click="scrollToSection('order')" class="order-now flex">
                         <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
                     </a>
                 </div>
@@ -160,54 +160,74 @@ const Main = {
             </div>
             <div class="row mb-4">
                 <div class="col-12">
-                    <div class="card order-card">
+                   <div class="card order-card">
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <input class="order-input" type="text" placeholder="First Name">
+                                <input class="order-input" type="text" placeholder="First Name" v-model="orderData.firstName">
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.firstName">
+                                    {{ errors.firstName }}
+                                </span>
                             </div>
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <input class="order-input" type="text" placeholder="Last Name">
+                                <input class="order-input" type="text" placeholder="Last Name" v-model="orderData.lastName">
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.lastName">
+                                    {{ errors.lastName }}
+                                </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <input class="order-input" type="text" placeholder="Email">
+                                <input class="order-input" type="text" placeholder="Email" v-model="orderData.email">
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.email">
+                                    {{ errors.email }}
+                                </span>
                             </div>
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <input class="order-input" type="text" placeholder="Phone">
+                                <input class="order-input" type="text" placeholder="Phone" v-model="orderData.phoneNo">
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.phoneNo">
+                                    {{ errors.phoneNo }}
+                                </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <select id="productList">
+                                <select id="productList" v-model="orderData.productName">
                                     <option value="">Select your product</option>
-                                    <option v-for="val in productDropDownData" :value="val">{{val}}</option>
+                                    <option v-for="val in productDropDownData" :value="val">{{ val }}</option>
                                 </select>
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.productName">
+                                    {{ errors.productName }}
+                                </span>
                             </div>
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
-                                <div class="file-upload flex" v-on:click="triggerFileUpload()">
+                                <div class="file-upload flex" @click="triggerFileUpload">
                                     <iconify-icon icon="material-symbols:cloud-upload"></iconify-icon>
                                     <p>Upload your content</p>
                                 </div>
-                                <input style="display: none;" type="file" ref="fileInput"
-                                    v-on:change="handleFileUpload()">
+                                <input style="display: none;" type="file" ref="fileInput" @change="validateFile">
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.file">
+                                    {{ errors.file }}
+                                </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <textarea placeholder="Type your message here" class="order-input"
-                                    style="height:100px;"></textarea>
+                                <textarea placeholder="Type your message here" class="order-input" style="height:100px;" v-model="orderData.productDescription"></textarea>
+                                <span class="d-block text-white fs-6 mt-2" v-if="errors.productDescription">
+                                    {{ errors.productDescription }}
+                                </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <button class="submit-order flex">
+                                <button class="submit-order flex" @click="submitOrder">
                                     <iconify-icon icon="formkit:submit"></iconify-icon>
                                     Submit Order
                                 </button>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -257,8 +277,9 @@ const Main = {
                 <div class="col-12 col-md-12 col-xl-3 pt-4">
                     <div class="branches flex">
                         <h4>Our Branches</h4>
-                        <p>Ponnammapet Gate, Salem, Tamilnadu,</p>
-                        <p style="margin-top:-12px;">New Bus Stand, Salem, Tamilnadu</p>
+                        <a href="#" class="flex" target="_blank">Ponnammapet Gate, Salem, Tamilnadu,</a>
+                        <a href="#" class="flex" target="_blank">New Bus Stand, Salem, Tamilnadu</a>
+                        <a href="https://api.whatsapp.com/send?phone=+916374507893" class="flex" target="_blank">Freelancing services from Bangalore</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-xl-3 pt-4">
@@ -268,27 +289,43 @@ const Main = {
                             <iconify-icon icon="ph:user-bold"></iconify-icon> Support Time: 10:00 AM to 9:00
                             PM
                         </div>
+
                         <div class="email flex">
-                            <iconify-icon icon="iconamoon:email-fill"></iconify-icon>
-                            stargraphix2010@gmail.com
+                            <a class="flex" href="mailto:starveera2010@gmail.com" target="_blank">
+                                <iconify-icon icon="iconamoon:email-fill"></iconify-icon>
+                                stargraphix2010@gmail.com
+                            </a>
                         </div>
+
                         <div class="phone flex">
-                            <iconify-icon icon="material-symbols:add-call-sharp"></iconify-icon>
-                            +91 9894033883 / +91 8056580402 / +91 6374507893
+                           <a class="flex" href="tel:+919894033883" ><iconify-icon icon="material-symbols:add-call-sharp"></iconify-icon> +91 98940 33883 </a>
+                           <a class="flex" href="tel:+918056580402" ><iconify-icon icon="material-symbols:add-call-sharp"></iconify-icon> +91 80565 80402 </a>
+                           <a class="flex" href="tel:+916374507893" ><iconify-icon icon="material-symbols:add-call-sharp"></iconify-icon> +91 63745 07893 </a>
                         </div>
                         <div class="social-media-icons flex">
-                            <div class="circle circle-1 flex">
-                                <iconify-icon icon="gg:facebook"></iconify-icon>
-                            </div>
-                            <div class="circle circle-2 flex">
-                                <iconify-icon icon="mdi:instagram"></iconify-icon>
-                            </div>
-                            <div class="circle circle-3 flex">
-                                <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
-                            </div>
-                            <div class="circle circle-4 flex">
-                                <iconify-icon icon="icon-park-outline:telegram"></iconify-icon>
-                            </div>
+                            <a href="https://www.facebook.com/veera.samy.104" target="_blank">
+                                <div class="circle circle-1 flex">
+                                    <iconify-icon icon="gg:facebook"></iconify-icon>
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/stargraphix2010?igsh=MWZmMDYyZjV6bmd4dQ==" target="_blank">
+                                <div class="circle circle-2 flex">
+                                    <iconify-icon icon="mdi:instagram"></iconify-icon>
+                                </div>
+                            </a>
+                            
+                            <a href="https://api.whatsapp.com/send?phone=+919894033883" target="_blank">
+                                <div class="circle circle-3 flex">
+                                    <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
+                                </div>
+                            </a>
+
+                            <a href="https://t.me/mntechy" target="_blank">
+                                <div class="circle circle-4 flex">
+                                    <iconify-icon icon="icon-park-outline:telegram"></iconify-icon>
+                                </div>
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -307,19 +344,19 @@ const Main = {
     <div v-if="mobileNavBar" class="nav-mobile-bar flex">
         <ul class="flex">
             <li>
-                <a href="#home" v-on:click="closeMobileNav()">Home</a>
+                <a href="javascript:void(0);" v-on:click="scrollToSection('home')">Home</a>
             </li>
             <li>
-                <a href="#services" v-on:click="closeMobileNav()">Services</a>
+                <a href="javascript:void(0);" v-on:click="scrollToSection('services')">Services</a>
             </li>
             <li>
-                <a href="#products" v-on:click="closeMobileNav()">Products</a>
+                <a href="javascript:void(0);" v-on:click="scrollToSection('products')">Products</a>
             </li>
             <li>
-                <a href="#contact" v-on:click="closeMobileNav()">Contact Us</a>
+                <a href="javascript:void(0);" v-on:click="scrollToSection('contact')">Contact Us</a>
             </li>
         </ul>
-        <a href="#order" class="order-now flex" v-on:click="closeMobileNav()">
+        <a href="javascript:void(0);" v-on:click="scrollToSection('order')" class="order-now flex">
             <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
         </a>
         <button class="close-btn" v-on:click="closeMobileNav()">
@@ -430,6 +467,24 @@ const Main = {
             ],
             currentTab: 'Tab 1',
             mobileNavBar: false,
+            orderData: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNo: '',
+                productName: '',
+                productDescription: '',
+                file: ''
+            },
+            errors: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNo: '',
+                productName: '',
+                productDescription: '',
+                file: ''
+            }
         };
     },
     computed: {
@@ -438,26 +493,103 @@ const Main = {
         }
     },
     methods: {
+        validateFirstName() {
+            this.errors.firstName = '';
+            if (!this.orderData.firstName) {
+                this.errors.firstName = 'Please enter the data';
+            } else if (!/^[a-zA-Z]+$/.test(this.orderData.firstName)) {
+                this.errors.firstName = 'Name doesn\'t contain special characters or numbers';
+            } else if (this.orderData.firstName.length > 25) {
+                this.errors.firstName = 'Max 25 characters';
+            }
+        },
+        validateLastName() {
+            this.errors.lastName = '';
+            if (!this.orderData.lastName) {
+                this.errors.lastName = 'Please enter the data';
+            } else if (!/^[a-zA-Z]+$/.test(this.orderData.lastName)) {
+                this.errors.lastName = 'Name doesn\'t contain special characters or numbers';
+            } else if (this.orderData.lastName.length > 25) {
+                this.errors.lastName = 'Max 25 characters';
+            }
+        },
+        validateEmail() {
+            this.errors.email = '';
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!this.orderData.email) {
+                this.errors.email = 'Please enter the data';
+            } else if (!emailPattern.test(this.orderData.email)) {
+                this.errors.email = 'Invalid email format';
+            }
+        },
+        validatePhoneNo() {
+            this.errors.phoneNo = '';
+            const phonePattern = /^[6789]\d{9}$/;
+            if (!this.orderData.phoneNo) {
+                this.errors.phoneNo = 'Please enter the data';
+            } else if (!phonePattern.test(this.orderData.phoneNo)) {
+                this.errors.phoneNo = 'Phone number must start with 7, 8, or 9 and contain 10 digits';
+            }
+        },
+        validateProductName() {
+            this.errors.productName = '';
+            if (!this.orderData.productName) {
+                this.errors.productName = 'Please select a product';
+            }
+        },
+        validateProductDescription() {
+            this.errors.productDescription = '';
+            if (!this.orderData.productDescription) {
+                this.errors.productDescription = 'Please enter a description';
+            }
+        },
+        validateFile(event) {
+            this.errors.file = '';
+            const file = event.target.files[0];
+            const validTypes = ['image/png', 'image/jpeg', 'application/pdf'];
+            const maxSize = 2 * 1024 * 1024; // 2 MB
+
+            if (!file) {
+                this.errors.file = 'Please upload the file';
+            } else if (!validTypes.includes(file.type)) {
+                this.errors.file = 'Invalid format. Allowed formats: png, jpg, pdf';
+            } else if (file.size > maxSize) {
+                this.errors.file = 'File size exceeds 2MB';
+            } else {
+                this.orderData.file = file;
+            }
+        },
+        validateData() {
+            this.validateFirstName();
+            this.validateLastName();
+            this.validateEmail();
+            this.validatePhoneNo();
+            this.validateProductName();
+            this.validateProductDescription();
+            this.validateFile({ target: { files: [this.orderData.file] } });
+            return !this.errors.firstName && !this.errors.lastName && !this.errors.email && !this.errors.phoneNo && !this.errors.productName && !this.errors.file;
+        },
+        submitOrder() {
+            if (this.validateData()) {
+                console.log(this.orderData.firstName, this.orderData.lastName, this.orderData.email,
+                    this.orderData.phoneNo, this.orderData.productName, this.orderData.productDescription, this.orderData.file);
+            }
+        },
+        scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            this.closeMobileNav();
+        },
         openMobileNav() {
             this.mobileNavBar = true;
         },
         closeMobileNav() {
             this.mobileNavBar = false;
         },
-        triggerFileUpload() {
-            this.$refs.fileInput.click();
-        },
-        handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                console.log('File selected:', file);
-            }
-        },
         viewAllProducts() {
             this.$router.push('/products');
         },
         viewProduct(id) {
-            this.$router.push(`/product/${id}`);
+            this.$router.push(`/singleProduct/${id}`);
         },
         initFlickity() {
             var elem = document.querySelectorAll('.main-carousel');
@@ -472,12 +604,16 @@ const Main = {
         productDropDown() {
             $('#productList').select2();
         },
-        viewProduct(id) {
-            this.$router.push(`/singleProduct/${id}`);
+        triggerFileUpload() {
+            this.$refs.fileInput.click();
         },
     },
     mounted() {
         this.initFlickity();
         this.productDropDown();
+        $('#productList').select2().on('change', () => {
+            this.orderData.productName = $('#productList').val();
+            this.validateProductName();
+        });
     }
 };
