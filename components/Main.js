@@ -1,3 +1,19 @@
+
+// Firebase Configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDN_104D8x9ha8OAKaRR9iyao-us5xylaY",
+    authDomain: "stargraphix-order.firebaseapp.com",
+    databaseURL: "https://stargraphix-order-default-rtdb.firebaseio.com",
+    projectId: "stargraphix-order",
+    storageBucket: "stargraphix-order.appspot.com",
+    messagingSenderId: "122684226020",
+    appId: "1:122684226020:web:996d269138fabe972eaff1",
+    measurementId: "G-P5LNVB8Q7S"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 const Main = {
     template: `
         <div class="container-fluid p-0" style="min-height: 100dvh !important;">
@@ -34,7 +50,7 @@ const Main = {
                         <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
                     </a>
                 </div>
-                <button class="expand-btn flex" v-on:click="openMobileNav()()">
+                <button class="expand-btn flex" v-on:click="mobileNavBar = true">
                     <iconify-icon icon="octicon:three-bars-16"></iconify-icon>
                 </button>
             </div>
@@ -359,7 +375,7 @@ const Main = {
         <a href="javascript:void(0);" v-on:click="scrollToSection('order')" class="order-now flex">
             <iconify-icon icon="material-symbols:order-approve"></iconify-icon> Order Now
         </a>
-        <button class="close-btn" v-on:click="closeMobileNav()">
+        <button class="close-btn" v-on:click="mobileNavBar = false">
             <iconify-icon icon="rivet-icons:close"></iconify-icon>
         </button>
     </div>
@@ -569,20 +585,8 @@ const Main = {
             this.validateFile({ target: { files: [this.orderData.file] } });
             return !this.errors.firstName && !this.errors.lastName && !this.errors.email && !this.errors.phoneNo && !this.errors.productName && !this.errors.file;
         },
-        submitOrder() {
-            if (this.validateData()) {
-                console.log(this.orderData.firstName, this.orderData.lastName, this.orderData.email,
-                    this.orderData.phoneNo, this.orderData.productName, this.orderData.productDescription, this.orderData.file);
-            }
-        },
         scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            this.closeMobileNav();
-        },
-        openMobileNav() {
-            this.mobileNavBar = true;
-        },
-        closeMobileNav() {
             this.mobileNavBar = false;
         },
         viewAllProducts() {
@@ -607,6 +611,113 @@ const Main = {
         triggerFileUpload() {
             this.$refs.fileInput.click();
         },
+        convertToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+                reader.readAsDataURL(file);
+            });
+        },
+        optimizeImage(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const maxWidth = 800; // Desired max width of the image
+                        const maxHeight = 800; // Desired max height of the image
+                        let width = img.width;
+                        let height = img.height;
+
+                        // Calculate the new dimensions
+                        if (width > height) {
+                            if (width > maxWidth) {
+                                height *= maxWidth / width;
+                                width = maxWidth;
+                            }
+                        } else {
+                            if (height > maxHeight) {
+                                width *= maxHeight / height;
+                                height = maxHeight;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        // Convert the canvas to a base64 string with reduced quality
+                        const optimizedBase64 = canvas.toDataURL('image/jpeg', 0.7); // Adjust quality from 0 to 1
+                        resolve(optimizedBase64);
+                    };
+                    img.onerror = reject;
+                    img.src = event.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        },
+        async submitOrder() {
+            if (this.validateData()) {
+                try {
+                    // Optimize the image
+                    const optimizedBase64File = await this.optimizeImage(this.orderData.file);
+
+                    // Prepare the order data
+                    const orderData = {
+                        firstName: this.orderData.firstName,
+                        lastName: this.orderData.lastName,
+                        email: this.orderData.email,
+                        phoneNo: this.orderData.phoneNo,
+                        productName: this.orderData.productName,
+                        productDescription: this.orderData.productDescription,
+                        imageUrl: optimizedBase64File
+                    };
+
+                    // Save to Firebase Realtime Database
+                    const newOrderKey = firebase.database().ref().child('orders').push().key;
+                    const updates = {};
+                    updates[`/orders/${newOrderKey}`] = orderData;
+                    await firebase.database().ref().update(updates);
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Your order is confirmed'
+                    });
+                    this.clearForm();
+                } catch (error) {
+                    console.error('Error saving order:', error);
+                    alert('Failed to submit order. Please try again.');
+                }
+            }
+        },
+        clearForm() {
+            this.orderData = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNo: '',
+                productName: '',
+                productDescription: '',
+                file: null
+            };
+            this.errors = {
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNo: '',
+                productName: '',
+                productDescription: '',
+                file: ''
+            };
+            this.$refs.fileInput.value = '';
+            $('#productList').val('').trigger('change');
+        }
     },
     mounted() {
         this.initFlickity();
