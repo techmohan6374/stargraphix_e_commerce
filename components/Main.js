@@ -687,7 +687,7 @@ const Main = {
                     Swal.fire({
                         icon: 'success',
                         title: 'Success',
-                        text: 'Your order is confirmed'
+                        text: 'Your order is submitted'
                     });
                     this.clearForm();
                 } catch (error) {
