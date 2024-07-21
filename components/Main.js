@@ -10,6 +10,7 @@ var firebaseConfig = {
     appId: "1:122684226020:web:996d269138fabe972eaff1",
     measurementId: "G-P5LNVB8Q7S"
 };
+var notyf = new Notyf();
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -218,7 +219,7 @@ const Main = {
                             <div class="col-12 col-md-6 col-xl-6 mb-3">
                                 <div class="file-upload flex" @click="triggerFileUpload">
                                     <iconify-icon icon="material-symbols:cloud-upload"></iconify-icon>
-                                    <p>Upload your content</p>
+                                    <p>{{orderFileName}}</p>
                                 </div>
                                 <input style="display: none;" type="file" ref="fileInput" @change="validateFile">
                                 <span class="d-block text-white fs-6 mt-2" v-if="errors.file">
@@ -500,6 +501,7 @@ const Main = {
                 productDescription: '',
                 file: ''
             },
+            orderFileName: 'Upload your file',
             errors: {
                 firstName: '',
                 lastName: '',
@@ -523,8 +525,10 @@ const Main = {
                 this.errors.firstName = 'Please enter the data';
             } else if (!/^[a-zA-Z]+$/.test(this.orderData.firstName)) {
                 this.errors.firstName = 'Name doesn\'t contain special characters or numbers';
+                notyf.error('Name doesn\'t contain special characters or numbers');
             } else if (this.orderData.firstName.length > 25) {
                 this.errors.firstName = 'Max 25 characters';
+                this.errors.lastName = 'Max 25 characters';
             }
         },
         validateLastName() {
@@ -533,8 +537,10 @@ const Main = {
                 this.errors.lastName = 'Please enter the data';
             } else if (!/^[a-zA-Z]+$/.test(this.orderData.lastName)) {
                 this.errors.lastName = 'Name doesn\'t contain special characters or numbers';
+                notyf.error('Name doesn\'t contain special characters or numbers');
             } else if (this.orderData.lastName.length > 25) {
                 this.errors.lastName = 'Max 25 characters';
+                notyf.error('Max 25 characters');
             }
         },
         validateEmail() {
@@ -544,6 +550,7 @@ const Main = {
                 this.errors.email = 'Please enter the data';
             } else if (!emailPattern.test(this.orderData.email)) {
                 this.errors.email = 'Invalid email format';
+                notyf.error('Invalid email format');
             }
         },
         validatePhoneNo() {
@@ -553,18 +560,21 @@ const Main = {
                 this.errors.phoneNo = 'Please enter the data';
             } else if (!phonePattern.test(this.orderData.phoneNo)) {
                 this.errors.phoneNo = 'Phone number must start with 7, 8, or 9 and contain 10 digits';
+                notyf.error('Phone number must start with 7, 8, or 9 and contain 10 digits');
             }
         },
         validateProductName() {
             this.errors.productName = '';
             if (!this.orderData.productName) {
                 this.errors.productName = 'Please select a product';
+                notyf.error('Please select a product');
             }
         },
         validateProductDescription() {
             this.errors.productDescription = '';
             if (!this.orderData.productDescription) {
                 this.errors.productDescription = 'Please enter a description';
+                notyf.error('Please enter a description');
             }
         },
         validateFile(event) {
@@ -575,14 +585,19 @@ const Main = {
 
             if (!file) {
                 this.errors.file = 'Please upload the file';
+                notyf.error('Please upload the file');
             } else if (!validTypes.includes(file.type)) {
                 this.errors.file = 'Invalid format. Allowed formats: png, jpg, pdf';
+                notyf.error('Invalid format. Allowed formats: png, jpg, pdf');
             } else if (file.size > maxSize) {
                 this.errors.file = 'File size exceeds 2MB';
+                notyf.error('File size exceeds 2MB');
             } else {
                 this.orderData.file = file;
+                this.orderFileName = file.name; // Store the filename
             }
         },
+
         validateData() {
             this.validateFirstName();
             this.validateLastName();
@@ -675,6 +690,7 @@ const Main = {
                     // Optimize the image
                     const optimizedBase64File = await this.optimizeImage(this.orderData.file);
 
+
                     // Prepare the order data
                     const orderData = {
                         firstName: this.orderData.firstName,
@@ -699,8 +715,7 @@ const Main = {
                     });
                     this.clearForm();
                 } catch (error) {
-                    console.error('Error saving order:', error);
-                    alert('Failed to submit order. Please try again.');
+                    notyf.error(error);
                 }
             }
         },
@@ -725,6 +740,7 @@ const Main = {
             };
             this.$refs.fileInput.value = '';
             $('#productList').val('').trigger('change');
+            this.orderFileName = 'Upload your file';
         }
     },
     mounted() {
