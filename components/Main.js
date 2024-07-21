@@ -351,7 +351,7 @@ const Main = {
         </div>
         <div class="container-fluid p-0 m-0 pt-4">
             <div class="row m-0">
-                <a href="https://techmohan2020.000webhostapp.com/" target="_blank">
+                <a href="https://techmohan.stargraphix.in/" target="_blank">
                     <div class="col-12 author">
                         Designed & Developed By @ Tech Mohan
                     </div>
