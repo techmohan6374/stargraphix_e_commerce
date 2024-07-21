@@ -302,8 +302,9 @@ const Main = {
                     <div class="customer-support">
                         <h4>Customer Support</h4>
                         <div class="support-time flex">
-                            <iconify-icon icon="ph:user-bold"></iconify-icon> Support Time: 10:00 AM to 9:00
-                            PM
+                            <a class="flex" href="javascript:void(0);">
+                                <iconify-icon icon="ph:user-bold"></iconify-icon> Support Time: 10:00 AM to 9:00 PM
+                            </a>
                         </div>
 
                         <div class="email flex">
