@@ -112,7 +112,31 @@ const SingleProduct = {
                     id: 18,
                     productImage: '/resources/images/Designs/Wedding Cards/1.jpg',
                     productId: 3
-                }
+                },
+                {
+                    id: 19,
+                    productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
+                    productFile: '/resources/pdf/Digital Business Cards/APPLE FOOD DIGITAL BUSINESS CARD.pdf',
+                    productId: 7
+                },
+                {
+                    id: 19,
+                    productImage: '/resources/images/Designs/Digital Business Cards/2.jpg',
+                    productFile: '/resources/pdf/Digital Business Cards/Mohanraj Designer.pdf',
+                    productId: 7
+                },
+                {
+                    id: 19,
+                    productImage: '/resources/images/Designs/Digital Business Cards/3.jpg',
+                    productFile: '/resources/pdf/Digital Business Cards/PCS Vinod Digital Visiting Card.pdf',
+                    productId: 7
+                },
+                {
+                    id: 19,
+                    productImage: '/resources/images/Designs/Digital Business Cards/4.jpg',
+                    productFile: '/resources/pdf/Digital Business Cards/STARGRAPHIX DIGITAL CARD-1.pdf',
+                    productId: 7
+                },
             ],
             products: [
                 {
@@ -156,10 +180,17 @@ const SingleProduct = {
                     productImage: '/resources/images/Designs/Note Book/1.jpg',
                     productPrize: 450,
                     productContent: 'Create your unique custom notebooks with personalized designs and professional printing. Ideal for gifts, branding, and everyday use.'
+                },
+                {
+                    id: 7,
+                    productName: 'Digital Business Card',
+                    productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
+                    productPrize: 1000,
+                    productContent: 'Boost your professional presence with our digital business cards, featuring clickable social media icons and offline access.',
                 }
             ],
             selectedProductImage: [],
-            selectedProductName: ''
+            selectedProductName: '',
         };
     },
     created() {
@@ -169,26 +200,42 @@ const SingleProduct = {
     },
     methods: {
         openFullscreen(src) {
-            $.fancybox.open([
-                {
-                    src: src,
-                    opts: {
-                        caption: this.selectedProductName,
-                        animationEffect: "fade",
-                        transitionEffect: "slide"
-                    }
+            if (this.selectedProductName == 'Digital Business Card') {
+                if(src=='/resources/images/Designs/Digital Business Cards/1.jpg'){
+                    window.open('/resources/pdf/Digital Business Cards/APPLE FOOD DIGITAL BUSINESS CARD.pdf', '_blank')
                 }
-            ], {
-                loop: false,
-                buttons: [
-                    "zoom",
-                    "share",
-                    "slideShow",
-                    "fullScreen",
-                    "download",
-                    "close"
-                ]
-            });
+                else if(src=='/resources/images/Designs/Digital Business Cards/2.jpg'){
+                    window.open('/resources/pdf/Digital Business Cards/Mohanraj Designer.pdf', '_blank')
+                }
+                else if(src=='/resources/images/Designs/Digital Business Cards/3.jpg'){
+                    window.open('/resources/pdf/Digital Business Cards/PCS Vinod Digital Visiting Card.pdf', '_blank')
+                }
+                else if(src=='/resources/images/Designs/Digital Business Cards/4.jpg'){
+                    window.open('/resources/pdf/Digital Business Cards/STARGRAPHIX DIGITAL CARD-1.pdf', '_blank')
+                }
+            }
+            else {
+                $.fancybox.open([
+                    {
+                        src: src,
+                        opts: {
+                            caption: this.selectedProductName,
+                            animationEffect: "fade",
+                            transitionEffect: "slide"
+                        }
+                    }
+                ], {
+                    loop: false,
+                    buttons: [
+                        "zoom",
+                        "share",
+                        "slideShow",
+                        "fullScreen",
+                        "download",
+                        "close"
+                    ]
+                });
+            }
         },
         goBack() {
             this.$router.push('/all-products');

@@ -113,7 +113,7 @@ const Main = {
 
         <div class="container mb-4">
             <div class="row" v-if="currentTab === 'Tab 1'">
-                <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products">
+                <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products.slice(0,3)">
                     <div class="card product-card flex">
                         <div class="product-image">
                             <img :src="product.productImage" :alt="product.productImage" loading="lazy">
@@ -463,6 +463,13 @@ const Main = {
                     productImage: '/resources/images/Designs/Note Book/1.jpg',
                     productPrize: 450,
                     productContent: 'Create your unique custom notebooks with personalized designs and professional printing. Ideal for gifts, branding, and everyday use.'
+                },
+                {
+                    id: 7,
+                    productName: 'Digital Business Card',
+                    productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
+                    productPrize: 1000,
+                    productContent: 'Boost your professional presence with our digital business cards, featuring clickable social media icons and offline access.',
                 }
             ],
             websiteProducts: [

@@ -89,6 +89,13 @@ const Products = {
                     productImage: '/resources/images/Designs/Note Book/1.jpg',
                     productPrize: 450,
                     productContent: 'Create your unique custom notebooks with personalized designs and professional printing. Ideal for gifts, branding, and everyday use.'
+                },
+                {
+                    id: 7,
+                    productName: 'Digital Business Card',
+                    productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
+                    productPrize: 1000,
+                    productContent: 'Boost your professional presence with our digital business cards, featuring clickable social media icons and offline access.',
                 }
             ],
             selectedProductImage: [],
