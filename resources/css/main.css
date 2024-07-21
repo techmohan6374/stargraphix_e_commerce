@@ -6,7 +6,11 @@ header {
 
 #home {
     padding-top: 90px;
-    padding-bottom: 30px;
+}
+
+#home {
+    background-color: var(--secondary-color);
+    border-bottom: 5px solid var(--primary-color);
 }
 
 #services {
@@ -27,30 +31,6 @@ header {
 
 #order {
     min-height: 500px;
-}
-
-/* Carousel Styles */
-.main-carousel {
-    width: 100%;
-    height: 500px;
-    background-color: var(--secondary-color);
-}
-
-.carousel-cell {
-    width: 100%;
-    height: 100%;
-    padding: 20px 80px;
-}
-
-.carousel-cell img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-:is(.carousel-1, .carousel-2, .carousel-3) {
-    color: var(--secondary-color);
-    font-size: 30px;
 }
 
 .flickity-page-dots .is-selected {
@@ -621,6 +601,10 @@ header {
     color: var(--primary-color);
 }
 
+.splide__pagination__page.is-active {
+    background: var(--primary-color);
+}
+
 /* Media Query */
 @media screen and (min-width:1024px) {
 
@@ -762,6 +746,8 @@ header {
     .social-media-icons {
         justify-content: flex-start;
     }
+
+
 }
 
 @media screen and (max-width:1023px) {

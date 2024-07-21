@@ -58,15 +58,21 @@ const Main = {
         </div>
     </header>
     <section id="home">
-        <div class="main-carousel">
-            <div class="carousel-1 carousel-cell flex">
-                <img src="/resources/images/Sliders/1.png" alt="Slider 1">
-            </div>
-            <div class="carousel-2 carousel-cell flex">
-                <img src="/resources/images/Sliders/2.png" alt="Slider 2">
-            </div>
-            <div class="carousel-3 carousel-cell flex">
-                <img src="/resources/images/Sliders/3.png" alt="Slider 3">
+       <div id="desktop-carousel">
+            <div class="main-carousel splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                    <li class="splide__slide carousel-cell">
+                        <img src="/resources/images/Sliders/1.jpg" alt="Slider 1">
+                    </li>
+                    <li class="splide__slide carousel-cell">
+                        <img src="/resources/images/Sliders/2.jpg" alt="Slider 2">
+                    </li>
+                    <li class="splide__slide carousel-cell">
+                        <img src="/resources/images/Sliders/3.jpg" alt="Slider 3">
+                    </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -618,15 +624,13 @@ const Main = {
         viewProduct(id) {
             this.$router.push(`/singleProduct/${id}`);
         },
-        initFlickity() {
-            var elem = document.querySelectorAll('.main-carousel');
-            elem.forEach((carousel) => {
-                new Flickity(carousel, {
-                    cellAlign: 'center',
-                    contain: true,
-                    autoPlay: 2000
-                });
-            });
+        initSlider() {
+            new Splide('.splide', {
+                type: 'loop',
+                perPage: 1,
+                // autoplay: true,
+                // interval: 2000,
+            }).mount();
         },
         productDropDown() {
             $('#productList').select2();
@@ -741,14 +745,14 @@ const Main = {
             this.$refs.fileInput.value = '';
             $('#productList').val('').trigger('change');
             this.orderFileName = 'Upload your file';
-        }
+        },
     },
     mounted() {
-        this.initFlickity();
+        this.initSlider();
         this.productDropDown();
         $('#productList').select2().on('change', () => {
             this.orderData.productName = $('#productList').val();
             this.validateProductName();
         });
-    }
+    },
 };
