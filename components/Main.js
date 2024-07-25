@@ -478,6 +478,34 @@ const Main = {
                     productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
                     productPrize: 1000,
                     productContent: 'Boost your professional presence with our digital business cards, featuring clickable social media icons and offline access.',
+                },
+                {
+                    id: 8,
+                    productName: 'Brand Logo',
+                    productImage: '/resources/images/Designs/Brand Logo/1.jfif',
+                    productPrize: 1000,
+                    productContent: 'Transform your brand identity with our unique and creative logo designs, crafted to captivate your audience.',
+                },
+                {
+                    id: 9,
+                    productName: 'Book Wrapper',
+                    productImage: '/resources/images/Designs/Book Wrapper/1.jfif',
+                    productPrize: 1500,
+                    productContent: 'Enhance your books with our stylish wrappers and complete design solutions, tailored for a polished and professional look.'
+                },
+                {
+                    id: 10,
+                    productName: 'Invoice',
+                    productImage: '/resources/images/Designs/Invoice/1.jfif',
+                    productPrize: '900',
+                    productContent: 'Invoice Design & Printable Sheets: Get professional invoice designs and printable sheets to streamline your billing process efficiently.',
+                },
+                {
+                    id: 11,
+                    productName: 'Banner',
+                    productImage: '/resources/images/Designs/Banner/1.jfif',
+                    productPrize: 800,
+                    productContent: 'Banner Designs & Printing: We offer custom banner designs and high-quality banner printing to make your brand stand out.',
                 }
             ],
             websiteProducts: [

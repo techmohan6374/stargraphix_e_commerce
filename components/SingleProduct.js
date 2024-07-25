@@ -137,6 +137,81 @@ const SingleProduct = {
                     productFile: '/resources/pdf/Digital Business Cards/STARGRAPHIX DIGITAL CARD-1.pdf',
                     productId: 7
                 },
+                {
+                    id: 20,
+                    productImage: '/resources/images/Designs/Brand Logo/1.jfif',
+                    productId: 8
+                },
+                {
+                    id: 21,
+                    productImage: '/resources/images/Designs/Brand Logo/2.jfif',
+                    productId: 8
+                },
+                {
+                    id: 22,
+                    productImage: '/resources/images/Designs/Brand Logo/3.jfif',
+                    productId: 8
+                },
+                {
+                    id: 23,
+                    productImage: '/resources/images/Designs/Brand Logo/4.jfif',
+                    productId: 8
+                },
+                {
+                    id: 24,
+                    productImage: '/resources/images/Designs/Brand Logo/5.jfif',
+                    productId: 8
+                },
+                {
+                    id: 25,
+                    productImage: '/resources/images/Designs/Brand Logo/6.jfif',
+                    productId: 8
+                },
+                {
+                    id: 26,
+                    productImage: '/resources/images/Designs/Brand Logo/7.jfif',
+                    productId: 8
+                },
+                {
+                    id: 27,
+                    productImage: '/resources/images/Designs/Flyer/7.jpg',
+                    productId: 2,
+                },
+                {
+                    id: 28,
+                    productImage: '/resources/images/Designs/Flyer/8.jpg',
+                    productId: 2,
+                },
+                {
+                    id: 29,
+                    productImage: '/resources/images/Designs/Wedding Cards/2.jpg',
+                    productId: 3
+                },
+                {
+                    id: 30,
+                    productImage: '/resources/images/Designs/Wedding Cards/3.jpg',
+                    productId: 3
+                },
+                {
+                    id: 31,
+                    productImage: '/resources/images/Designs/Book Wrapper/1.jfif',
+                    productId: 9
+                },
+                {
+                    id: 32,
+                    productImage: '/resources/images/Designs/Book Wrapper/2.jfif',
+                    productId: 9
+                },
+                {
+                    id: 33,
+                    productImage: '/resources/images/Designs/Invoice/1.jfif',
+                    productId: 10
+                },
+                {
+                    id: 34,
+                    productImage: '/resources/images/Designs/Banner/1.jfif',
+                    productId: 11
+                }
             ],
             products: [
                 {
@@ -187,6 +262,34 @@ const SingleProduct = {
                     productImage: '/resources/images/Designs/Digital Business Cards/1.jpg',
                     productPrize: 1000,
                     productContent: 'Boost your professional presence with our digital business cards, featuring clickable social media icons and offline access.',
+                },
+                {
+                    id: 8,
+                    productName: 'Brand Logo',
+                    productImage: '/resources/images/Designs/Brand Logo/1.jfif',
+                    productPrize: 1000,
+                    productContent: 'Transform your brand identity with our unique and creative logo designs, crafted to captivate your audience.',
+                },
+                {
+                    id: 9,
+                    productName: 'Book Wrapper',
+                    productImage: '/resources/images/Designs/Book Wrapper/1.jfif',
+                    productPrize: 1500,
+                    productContent: 'Enhance your books with our stylish wrappers and complete design solutions, tailored for a polished and professional look.'
+                },
+                {
+                    id: 10,
+                    productName: 'Invoice',
+                    productImage: '/resources/images/Designs/Invoice/1.jfif',
+                    productPrize: '900',
+                    productContent: 'Invoice Design & Printable Sheets: Get professional invoice designs and printable sheets to streamline your billing process efficiently.',
+                },
+                {
+                    id: 11,
+                    productName: 'Banner',
+                    productImage: '/resources/images/Designs/Banner/1.jfif',
+                    productPrize: 800,
+                    productContent: 'Banner Designs & Printing: We offer custom banner designs and high-quality banner printing to make your brand stand out.',
                 }
             ],
             selectedProductImage: [],
@@ -201,16 +304,16 @@ const SingleProduct = {
     methods: {
         openFullscreen(src) {
             if (this.selectedProductName == 'Digital Business Card') {
-                if(src=='/resources/images/Designs/Digital Business Cards/1.jpg'){
+                if (src == '/resources/images/Designs/Digital Business Cards/1.jpg') {
                     window.open('/resources/pdf/Digital Business Cards/APPLE FOOD DIGITAL BUSINESS CARD.pdf', '_blank')
                 }
-                else if(src=='/resources/images/Designs/Digital Business Cards/2.jpg'){
+                else if (src == '/resources/images/Designs/Digital Business Cards/2.jpg') {
                     window.open('/resources/pdf/Digital Business Cards/Mohanraj Designer.pdf', '_blank')
                 }
-                else if(src=='/resources/images/Designs/Digital Business Cards/3.jpg'){
+                else if (src == '/resources/images/Designs/Digital Business Cards/3.jpg') {
                     window.open('/resources/pdf/Digital Business Cards/PCS Vinod Digital Visiting Card.pdf', '_blank')
                 }
-                else if(src=='/resources/images/Designs/Digital Business Cards/4.jpg'){
+                else if (src == '/resources/images/Designs/Digital Business Cards/4.jpg') {
                     window.open('/resources/pdf/Digital Business Cards/STARGRAPHIX DIGITAL CARD-1.pdf', '_blank')
                 }
             }
