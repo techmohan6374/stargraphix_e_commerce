@@ -24,13 +24,13 @@ const FlipBook = {
         }
     },
     mounted() {
-        // Check if the reload flag is set in session storage
-        if (!sessionStorage.getItem('reloaded')) {
-            // Set the reload flag
-            sessionStorage.setItem('reloaded', 'true');
-            // Reload the page after 2 seconds
+        // Check if the reload flag is not present in the URL query
+        if (!this.$route.query.reloaded) {
+            // Set the reload flag in the URL query and reload the page after 2 seconds
             setTimeout(() => {
-                location.reload();
+                this.$router.replace({ ...this.$route, query: { reloaded: 'true' } }).then(() => {
+                    location.reload();
+                });
             }, 2000);
         }
     },
