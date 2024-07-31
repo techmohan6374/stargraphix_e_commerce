@@ -211,6 +211,11 @@ const SingleProduct = {
                     id: 34,
                     productImage: '/resources/images/Designs/Banner/1.jfif',
                     productId: 11
+                },
+                {
+                    id: 35,
+                    productImage: '/resources/images/Designs/E-Book/1.jpg',
+                    productId: 12
                 }
             ],
             products: [
@@ -290,6 +295,13 @@ const SingleProduct = {
                     productImage: '/resources/images/Designs/Banner/1.jfif',
                     productPrize: 800,
                     productContent: 'Banner Designs & Printing: We offer custom banner designs and high-quality banner printing to make your brand stand out.',
+                },
+                {
+                    id: 12,
+                    productName: 'E-Book',
+                    productImage: '/resources/images/Designs/E-Book/1.jpg',
+                    productPrize: 4000,
+                    productContent: 'Transform your manuscript into a visually stunning e-book with our expert design services, ensuring a captivating and reader-friendly experience.'
                 }
             ],
             selectedProductImage: [],
@@ -315,6 +327,12 @@ const SingleProduct = {
                 }
                 else if (src == '/resources/images/Designs/Digital Business Cards/4.jpg') {
                     window.open('/resources/pdf/Digital Business Cards/STARGRAPHIX DIGITAL CARD-1.pdf', '_blank')
+                }
+            }
+            else if (this.selectedProductName == 'E-Book') {
+                if (src == '/resources/images/Designs/E-Book/1.jpg') {
+                    var id = 1;
+                    this.$router.push(`/flipBook/${id}`);
                 }
             }
             else {

@@ -124,6 +124,13 @@ const Products = {
                     productImage: '/resources/images/Designs/Banner/1.jfif',
                     productPrize: 800,
                     productContent: 'Banner Designs & Printing: We offer custom banner designs and high-quality banner printing to make your brand stand out.',
+                },
+                {
+                    id: 12,
+                    productName: 'E-Book',
+                    productImage: '/resources/images/Designs/E-Book/1.jpg',
+                    productPrize: 4000,
+                    productContent: 'Transform your manuscript into a visually stunning e-book with our expert design services, ensuring a captivating and reader-friendly experience.'
                 }
             ],
             selectedProductImage: [],
