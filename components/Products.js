@@ -21,7 +21,7 @@ const Products = {
                 </div>
                 <div class="row mb-4">
                     <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in filteredProductData">
-                        <div class="card product-card flex">
+                        <div class="card product-card flex" data-aos="zoom-in">
                             <div class="product-image">
                                 <img :src="product.productImage" :alt="product.productImage" loading="lazy">
                             </div>

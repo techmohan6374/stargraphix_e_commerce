@@ -87,7 +87,7 @@ const Main = {
             </div>
             <div class="row">
                 <div v-for="service in services" class="col-12 col-md-6 col-xl-4 mb-4">
-                    <div class="card service-card flex">
+                    <div class="card service-card flex" data-aos="zoom-in">
                         <div class="service-header flex">
                             <div class="service-logo flex">
                                 <iconify-icon :icon="service.serviceIcon"></iconify-icon>
@@ -121,7 +121,7 @@ const Main = {
         <div class="container mb-4">
             <div class="row" v-if="currentTab === 'Tab 1'">
                 <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in products.slice(0,6)">
-                    <div class="card product-card flex">
+                    <div class="card product-card flex" data-aos="zoom-in">
                         <div class="product-image">
                             <img :src="product.productImage" :alt="product.productImage" loading="lazy">
                         </div>

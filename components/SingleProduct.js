@@ -10,7 +10,7 @@ const SingleProduct = {
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 col-xl-4 mb-3" v-for="val in selectedProductImage">
-                    <div class="card rounded-0">
+                    <div class="card rounded-0" data-aos="zoom-in">
                         <img :src="val" :alt="val">
                         <button class="fullscreen flex" v-on:click="openFullscreen(val)">
                             <iconify-icon icon="ic:outline-fullscreen-exit"></iconify-icon>

@@ -3,6 +3,11 @@ const FlipBook = {
   template: `
     <div class="container-fluid p-0 flex" style="min-height: 100vh;" id="singleFlipBookViewer">
         <div id="flipbookPDFContainer"></div>
+        <div class="stargraphix-box animate__animated animate__bounceIn animate__infinite	infinite animate__slow	2s">
+            <a href="http://stargraphix.in/" target="_blank">
+              <img src="/resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo" />
+            </a>
+         </div>
     </div>
     `,
   data() {
@@ -20,18 +25,16 @@ const FlipBook = {
       var source_pdf = this.selectedPdfUrl;
       if (this.index == 0) {
         var option_pdf = { webgl: true, backgroundColor: "#ac3338" };
-        $('#singleFlipBookViewer').css('background-color','#ac3338');
+        $("#singleFlipBookViewer").css("background-color", "#ac3338");
       } else if (this.index == 1) {
         var option_pdf = { webgl: true, backgroundColor: "#9a362e" };
-        $('#singleFlipBookViewer').css('background-color','#9a362e');
-        
+        $("#singleFlipBookViewer").css("background-color", "#9a362e");
       } else if (this.index == 2) {
         var option_pdf = { webgl: true, backgroundColor: "#085a44" };
-        $('#singleFlipBookViewer').css('background-color','#085a44');
-      }
-      else if(this.index==3){
+        $("#singleFlipBookViewer").css("background-color", "#085a44");
+      } else if (this.index == 3) {
         var option_pdf = { webgl: true, backgroundColor: "#301773" };
-        $('#singleFlipBookViewer').css('background-color','#301773');
+        $("#singleFlipBookViewer").css("background-color", "#301773");
       }
       var flipBook_pdf = $("#flipbookPDFContainer").flipBook(
         source_pdf,
