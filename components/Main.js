@@ -789,5 +789,8 @@ const Main = {
             this.orderData.productName = $('#productList').val();
             this.validateProductName();
         });
+ AOS.init({
+            duration: 1200,
+        })
     },
 };

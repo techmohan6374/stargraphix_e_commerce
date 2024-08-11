@@ -427,4 +427,9 @@ const SingleProduct = {
       this.$router.push("/all-products");
     },
   },
+mounted(){
+ AOS.init({
+            duration: 1200,
+        })
+}
 };
