@@ -21,7 +21,6 @@ const FlipBook = {
       if (this.index == 0) {
         var option_pdf = { webgl: true, backgroundColor: "#ac3338" };
         $('#singleFlipBookViewer').css('background-color','#ac3338');
-        containerBackground.style.backgroundColor('#ac3338');
       } else if (this.index == 1) {
         var option_pdf = { webgl: true, backgroundColor: "#9a362e" };
         $('#singleFlipBookViewer').css('background-color','#9a362e');
