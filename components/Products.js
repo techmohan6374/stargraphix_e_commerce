@@ -159,9 +159,9 @@ const Products = {
             this.$router.push('/main');
         }
     },
-mounted(){
- AOS.init({
+    mounted() {
+        AOS.init({
             duration: 1200,
         })
-}
+    }
 };
