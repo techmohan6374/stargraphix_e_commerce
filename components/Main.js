@@ -17,14 +17,14 @@ firebase.initializeApp(firebaseConfig);
 
 const Main = {
     template: `
-        <div class="container-fluid p-0" style="min-height: 100dvh !important;">
+        <div class="container-fluid p-0" style="min-height: 100dvh !important;background-color:#f5f5f5;">
     <header>
         <div class="navigation-bar">
             <div class="container">
                 <div class="star-graphix-logo flex">
                     <div class="circle-logo flex">
                         <a href="javascript:void(0);" v-on:click="scrollToSection('home')">
-                            <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo">
+                            <img src="resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo" loading="lazy">
                         </a>
                     </div>
                     <div class="company-name">

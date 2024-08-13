@@ -11,7 +11,7 @@ const SingleProduct = {
             <div class="row">
                 <div class="col-12 col-md-6 col-xl-4 mb-3" v-for="val in selectedProductImage">
                     <div class="card rounded-0" data-aos="zoom-in">
-                        <img :src="val" :alt="val">
+                        <img :src="val" :alt="val" loading="lazy">
                         <button class="fullscreen flex" v-on:click="openFullscreen(val)">
                             <iconify-icon icon="ic:outline-fullscreen-exit"></iconify-icon>
                         </button>
@@ -240,6 +240,11 @@ const SingleProduct = {
           productImage: "/resources/images/Designs/E-Book/4.jpg",
           productId: 12,
         },
+        {
+          id: 39,
+          productImage: '/resources/images/Designs/E-Book/5.jpg',
+          productId: 12,
+        }
       ],
       products: [
         {
@@ -397,6 +402,10 @@ const SingleProduct = {
           var id = 3;
           this.$router.push(`/flipbook/${id}`);
         }
+        else if (src == "/resources/images/Designs/E-Book/5.jpg") {
+          var id = 4;
+          this.$router.push(`/flipbook/${id}`);
+        }
       } else {
         $.fancybox.open(
           [
@@ -427,9 +436,9 @@ const SingleProduct = {
       this.$router.push("/all-products");
     },
   },
-mounted(){
- AOS.init({
-            duration: 1200,
-        })
-}
+  mounted() {
+    AOS.init({
+      duration: 1200,
+    })
+  }
 };

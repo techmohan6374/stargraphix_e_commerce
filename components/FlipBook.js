@@ -5,7 +5,7 @@ const FlipBook = {
         <div id="flipbookPDFContainer"></div>
         <div class="stargraphix-box animate__animated animate__bounceIn animate__infinite	infinite animate__slow	2s">
             <a href="http://stargraphix.in/" target="_blank">
-              <img src="/resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo" />
+              <img src="/resources/images/STAR GRAPHIX LOGO.png" alt="Star Graphix Logo" loading="lazy" />
             </a>
          </div>
     </div>
@@ -35,6 +35,10 @@ const FlipBook = {
       } else if (this.index == 3) {
         var option_pdf = { webgl: true, backgroundColor: "#301773" };
         $("#singleFlipBookViewer").css("background-color", "#301773");
+      }
+      else if(this.index==4){
+        var option_pdf = { webgl: true, backgroundColor: "#098b8d" };
+        $("#singleFlipBookViewer").css("background-color", "#098b8d");
       }
       var flipBook_pdf = $("#flipbookPDFContainer").flipBook(
         source_pdf,

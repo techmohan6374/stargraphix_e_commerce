@@ -12,7 +12,7 @@ const Products = {
                 <div class="row">
                     <div class="col-12">
                         <div class="search-bar" style="position: relative;">
-                            <input type="search" placeholder="Search Here..." v-model="searchProductText">
+                            <input type="search" placeholder="Search Here..." v-model="searchProductText" @input="onSearchInput">
                             <iconify-icon icon="wpf:search"
                                 style="position: absolute;  left: 14px;top: 14px;font-size: 26px;color:var(--primary-color)">
                             </iconify-icon>
@@ -20,7 +20,7 @@ const Products = {
                     </div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in filteredProductData">
+                    <div class="col-12 col-md-6 col-xl-4 mt-4" v-for="product in filteredProductData" :key="product.id">
                         <div class="card product-card flex" data-aos="zoom-in">
                             <div class="product-image">
                                 <img :src="product.productImage" :alt="product.productImage" loading="lazy">
@@ -34,7 +34,7 @@ const Products = {
                             <div class="product-content">
                                 {{product.productContent}}
                             </div>
-                            <button class="view-more-btn flex" v-on:click="viewProduct(product.id)">
+                            <button class="view-more-btn flex" @click="viewProduct(product.id)">
                                 View More
                                 <iconify-icon icon="gg:arrow-right-o"></iconify-icon>
                             </button>
@@ -135,21 +135,22 @@ const Products = {
             ],
             selectedProductImage: [],
             selectedProductName: '',
+            debounceTimeout: null,
+            debounceDelay: 300,
         };
     },
     computed: {
         filteredProductData() {
-            var searchText = this.searchProductText ? this.searchProductText.toLowerCase() : '';
+            const searchText = this.searchProductText ? this.searchProductText.toLowerCase() : '';
             return this.products.filter(product => {
-                let productName = product.productName ? product.productName.toLowerCase() : '';
-                let productPrize = product.productPrize ? product.productPrize.toString() : '';
+                const productName = product.productName ? product.productName.toLowerCase() : '';
+                const productPrize = product.productPrize ? product.productPrize.toString() : '';
                 return (
                     productName.includes(searchText) ||
                     productPrize.includes(searchText)
                 );
             });
         }
-
     },
     methods: {
         viewProduct(id) {
@@ -157,11 +158,12 @@ const Products = {
         },
         goBack() {
             this.$router.push('/main');
+        },
+        onSearchInput() {
+            clearTimeout(this.debounceTimeout);
+            this.debounceTimeout = setTimeout(() => {
+                this.searchProductText = this.searchProductText;
+            }, this.debounceDelay);
         }
     },
-    mounted() {
-        AOS.init({
-            duration: 1200,
-        })
-    }
 };
